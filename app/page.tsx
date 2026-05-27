@@ -1,0 +1,25 @@
+import Hero from "@/component/hero";
+import Welcome from "@/component/welcome";
+import WhySkinsa from "@/component/why-skinsa";
+import WhyUs from "@/component/why-us";
+import AboutUs from "@/component/about-us";
+import Offers from "@/component/offers";
+import BeforeAfter from "@/component/before-after";
+import FAQ from "@/component/faq";
+import Navbar from "@/component/navbar";
+
+export default function Home() {
+  return (
+    <main>
+      <Navbar />
+      <Hero />
+      <Welcome />
+      <AboutUs />
+      <WhyUs />
+      <Offers />
+      <BeforeAfter />
+      <WhySkinsa />
+      <FAQ />
+    </main>
+  );
+}

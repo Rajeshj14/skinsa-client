@@ -1,0 +1,197 @@
+"use client";
+
+import Image from "next/image";
+import { type CSSProperties, type ReactNode, useState } from "react";
+
+const GOLD = "#C9A96E";
+const BG   = "#0D0D0D";
+
+type BookingButtonProps = {
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties;
+  ariaLabel?: string;
+};
+
+export default function BookingButton({
+  children,
+  className,
+  style,
+  ariaLabel,
+}: BookingButtonProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError("");
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      source: "Website Popup Form",
+      name: String(formData.get("name") || ""),
+      phone: String(formData.get("phone") || ""),
+      email: String(formData.get("email") || ""),
+      concern: String(formData.get("concern") || ""),
+      pageUrl: window.location.href,
+    };
+
+    try {
+      const res = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = (await res.json()) as { success?: boolean; error?: string };
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Unable to submit the form");
+      }
+
+      window.location.href = "/thank-you";
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : "Something went wrong. Please try again.",
+      );
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setIsOpen(true)}
+        aria-label={ariaLabel}
+        className={className}
+        style={style}
+      >
+        {children}
+      </button>
+
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-6">
+          <div style={{ backgroundColor: BG }} className="relative grid max-h-[92vh] w-full max-w-5xl grid-cols-1 overflow-y-auto  text-white shadow-2xl lg:grid-cols-2 rounded-tl-[55px] rounded-br-[55px] rounded-tr-none rounded-bl-none border-[1px] border-white/50 ">
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close booking form"
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white transition hover:bg-white hover:text-black"
+            >
+              <span aria-hidden="true" className="text-2xl leading-none">
+                &times;
+              </span>
+            </button>
+
+            <div className="order-2 relative min-h-[260px] lg:order-2 lg:min-h-full">
+              <Image
+                src="/banner.png"
+                alt="Skinsa Aesthetic consultation"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/25" />
+              <div className="absolute bottom-5 left-5 right-5 border border-white/15 bg-black/70 p-4">
+                <p className="text-xs font-bold uppercase tracking-[0.28em]" style={{ color: GOLD }}>
+                  Consultation
+                </p>
+                <p className="mt-2 text-sm leading-6 text-white/75">
+                  Share your details and our team will call you to confirm the
+                  best treatment plan and appointment slot.
+                </p>
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="order-1 p-5 sm:p-8 lg:p-10">
+              <p
+                className="text-xs font-bold uppercase tracking-[0.35em]"
+                style={{ color: GOLD }}
+              >
+                Book Appointment
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+                Request a Consultation
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-white/60">
+                Fill in your details. We will contact you shortly.
+              </p>
+
+              <div className="mt-7 grid gap-4">
+                <label className="grid gap-2 text-sm font-medium text-white/80">
+                  Full Name
+                  <input
+                    required
+                    name="name"
+                    type="text"
+                    placeholder="Enter your name"
+                    className="border border-white/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-[#C9A96E]"
+                  />
+                </label>
+
+                <label className="grid gap-2 text-sm font-medium text-white/80">
+                  Phone Number
+                  <input
+                    required
+                    name="phone"
+                    type="tel"
+                    placeholder="+91 80070 70530"
+                    className="border border-white/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-[#C9A96E]"
+                  />
+                </label>
+
+                <label className="grid gap-2 text-sm font-medium text-white/80">
+                  Email
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    className="border border-white/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-[#C9A96E]"
+                  />
+                </label>
+
+                <label className="grid gap-2 text-sm font-medium text-white/80">
+                  Interested In
+                  <select
+                    required
+                    name="concern"
+                    className="border border-white/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-[#C9A96E]"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Select treatment
+                    </option>
+                    <option>CoolSculpting</option>
+                    <option>Lipodissolve</option>
+                    <option>Weight Loss IV Drips</option>
+                    <option>Body Contouring Consultation</option>
+                  </select>
+                </label>
+
+                {error && (
+                  <p className="border border-red-400/40 bg-red-950/40 px-4 py-3 text-sm leading-6 text-red-100">
+                    {error}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="mt-2 rounded-tl-[25px] rounded-br-[25px] px-6 py-3 text-sm font-bold tracking-[0.14em] text-black transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:opacity-70"
+                  style={{ backgroundColor: GOLD }}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit Request"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
