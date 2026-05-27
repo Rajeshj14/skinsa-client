@@ -21,7 +21,8 @@ const marqueeItems = [
 export default function Hero() {
   return (
     <section
-      className="relative w-full bg-black flex flex-col lg:flex-row overflow-hidden
+      id="home"
+      className="relative w-full scroll-mt-28 bg-black flex flex-col lg:flex-row overflow-hidden
                  lg:h-[calc(96vh-72px)]"
     >
 
@@ -46,7 +47,7 @@ export default function Hero() {
         />
 
         {/* ── Label ── */}
-        <div className="flex items-center gap-2.5 mb-5 lg:mb-6">
+        <div data-reveal="top" className="flex items-center gap-2.5 mb-5 lg:mb-6">
           <svg width="10" height="10" viewBox="0 0 24 24" fill={GOLD}>
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
           </svg>
@@ -60,6 +61,8 @@ export default function Hero() {
 
         {/* ── Heading ── */}
         <h1
+          data-reveal="left"
+          data-delay="100"
           className="
             mb-5 lg:mb-6
             max-w-[620px]
@@ -79,7 +82,7 @@ export default function Hero() {
         </h1>
 
         {/* ── Description ── */}
-        <div className="flex items-stretch gap-4 mb-5 lg:mb-6">
+        <div data-reveal="left" data-delay="200" className="flex items-stretch gap-4 mb-5 lg:mb-6">
           <div
             className="w-[2.5px] rounded-full shrink-0"
             style={{ backgroundColor: GOLD }}
@@ -91,7 +94,7 @@ export default function Hero() {
         </div>
 
         {/* ── Services 2×2 ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 sm:gap-y-2.5 mb-7 lg:mb-8">
+        <div data-reveal="bottom" data-delay="300" className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 sm:gap-y-2.5 mb-7 lg:mb-8">
           {services.map((s) => (
             <div key={s.no} className="flex items-center gap-2.5">
               <span
@@ -112,9 +115,10 @@ export default function Hero() {
         </div>
 
         {/* ── CTA ── */}
+        <div data-reveal="bottom" data-delay="400">
         <BookingButton
           ariaLabel="Book your consultation"
-          className="inline-flex items-center self-start gap-3 px-8 sm:px-9 py-3.5 text-[11.5px] sm:text-[12px] font-bold tracking-[0.18em] uppercase transition-all duration-200 hover:opacity-80 active:scale-95 rounded-tl-[25px] rounded-br-[25px]"
+          className="inline-flex items-center self-start gap-3 px-8 sm:px-9 py-3.5 text-[11.5px] sm:text-[12px] font-bold tracking-[0.18em] uppercase transition-all duration-200 rounded-tl-[25px] rounded-br-[25px]"
           style={{
             backgroundColor: GOLD,
             color: '#000',
@@ -129,13 +133,14 @@ export default function Hero() {
           </svg>
           Book Your Consultation
         </BookingButton>
+        </div>
 
       </div>
 
       {/* ══════════════════════════════
           MOBILE / TABLET — Image below content
       ══════════════════════════════ */}
-      <div className="block lg:hidden relative w-full px-6 sm:px-10 pb-16 mt-2">
+      <div data-reveal="bottom" data-delay="250" className="block lg:hidden relative w-full px-6 sm:px-10 pb-16 mt-2">
         <div
           className="relative w-full h-[300px] sm:h-[380px] overflow-hidden"
           style={{
@@ -189,7 +194,7 @@ export default function Hero() {
       {/* ══════════════════════════════
           RIGHT — Framed Image (desktop only)
       ══════════════════════════════ */}
-      <div className="relative hidden lg:flex items-center justify-center w-[40%] shrink-0 px-8 py-10 pb-14 lg:mr-15">
+      <div data-reveal="right" data-delay="180" className="relative hidden lg:flex items-center justify-center w-[40%] shrink-0 px-8 py-10 pb-14 lg:mr-15">
 
         {/* Gold dot grid — top right */}
         <div className="absolute top-6 right-4 grid grid-cols-5 gap-[6px] z-10 pointer-events-none">

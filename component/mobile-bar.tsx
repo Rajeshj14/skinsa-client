@@ -2,7 +2,6 @@
 
 import BookingButton from "@/component/booking-button";
 
-const GOLD = "#C9A96E";
 const PHONE_NUMBER = "+918007070530";
 const DISPLAY_PHONE = "+91 80070 70530";
 
@@ -12,8 +11,7 @@ export default function MobileActionBar() {
       <a
         href={`tel:${PHONE_NUMBER}`}
         aria-label={`Call Skinsa Aesthetic at ${DISPLAY_PHONE}`}
-        className="flex flex-1 items-center justify-center gap-2 py-4 text-sm font-semibold text-black transition active:scale-95"
-        style={{ backgroundColor: GOLD }}
+        className="flex flex-1 cursor-pointer items-center justify-center gap-2 bg-[#C9A96E] py-4 text-sm font-semibold text-black transition hover:bg-white active:scale-95"
       >
         <svg
           aria-hidden="true"

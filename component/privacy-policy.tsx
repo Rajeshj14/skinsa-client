@@ -58,27 +58,30 @@ export default function PrivacyPolicyPage() {
     <main className="bg-[#070707] text-white">
       <section className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
         <p
+          data-reveal="top"
           className="text-xs font-bold uppercase tracking-[0.35em]"
           style={{ color: GOLD }}
         >
           Skinsa Aesthetic
         </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+        <h1 data-reveal="left" data-delay="100" className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
           Privacy Policy
         </h1>
-        <p className="mt-5 max-w-3xl text-sm leading-7 text-white/70 sm:text-base">
+        <p data-reveal="left" data-delay="200" className="mt-5 max-w-3xl text-sm leading-7 text-white/70 sm:text-base">
           This Privacy Policy explains how Skinsa Aesthetic collects, uses, and
           protects information shared through our website, enquiries, and
           appointment requests.
         </p>
-        <p className="mt-4 text-sm text-white/55">Effective date: May 27, 2026</p>
+        <p data-reveal="bottom" data-delay="300" className="mt-4 text-sm text-white/55">Effective date: May 27, 2026</p>
       </section>
 
       <section className="mx-auto max-w-5xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-10">
         <div className="grid gap-5">
-          {policySections.map((section) => (
+          {policySections.map((section, index) => (
             <article
               key={section.title}
+              data-reveal={index % 2 === 0 ? "left" : "right"}
+              data-delay={String(index * 90)}
               className="border border-white/10 bg-white/[0.03] p-5 sm:p-6"
             >
               <h2 className="text-xl font-semibold" style={{ color: GOLD }}>
@@ -95,7 +98,7 @@ export default function PrivacyPolicyPage() {
           ))}
         </div>
 
-        <div className="mt-8 border border-white/10 bg-black p-5 sm:p-6">
+        <div data-reveal="bottom" data-delay="240" className="mt-8 border border-white/10 bg-black p-5 sm:p-6">
           <h2 className="text-xl font-semibold" style={{ color: GOLD }}>
             Contact Us
           </h2>
@@ -115,7 +118,9 @@ export default function PrivacyPolicyPage() {
 
         <Link
           href="/"
-          className="mt-8 inline-flex rounded-tl-[25px] rounded-br-[25px] bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-white active:scale-95"
+          data-reveal="bottom"
+          data-delay="320"
+          className="mt-8 inline-flex cursor-pointer rounded-tl-[25px] rounded-br-[25px] bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-white active:scale-95"
         >
           Back to Home
         </Link>

@@ -6,11 +6,11 @@ const GOLD = "#C9A96E";
 const BG   = "#0D0D0D";
 
 const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "About Us", href: "/about" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Why Choose Us", href: "/#why-choose-us" },
+  { label: "About Us", href: "/#about" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 const contactDetails = [
@@ -19,14 +19,14 @@ const contactDetails = [
     value:
       "Shop no 101,102, B wing, shubh gateway, Opp.Symbiosis law school, viman Nagar, pune, Mh 411014.",
   },
-  { label: "Email", value: "info@skinsaa.com." },
+  { label: "Email", value: "info@skinsaa.com" },
   { label: "Phone", value: "+91 8007070530" },
 ];
 
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: BG }} className="text-white">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1.4fr] lg:px-8 xl:px-10">
+      <div className="mx-auto grid max-w-7xl gap-8 max-sm:gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1.4fr] lg:px-8 xl:px-10">
         <div className="space-y-5">
           <Link href="/" aria-label="Skinsa Aesthetic Home" className="inline-flex">
             <Image
@@ -103,8 +103,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-sm text-white sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-10">
+      <div className="border-t border-white/10 max-sm:mb-15">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-2 text-sm text-white sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-10">
           <p>&copy; {new Date().getFullYear()} Skinsa Aesthetic. All rights reserved.</p>
           <Link
             href="/privacy-policy"

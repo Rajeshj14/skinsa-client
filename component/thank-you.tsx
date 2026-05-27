@@ -24,44 +24,45 @@ export default function ThankYouPage() {
   return (
     <main className="bg-[#070707] text-white">
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-16 xl:px-10">
-        <div>
+        <div data-reveal="left">
           <p
+            data-reveal="top"
             className="text-xs font-bold uppercase tracking-[0.35em]"
             style={{ color: GOLD }}
           >
             Skinsa Aesthetic
           </p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 data-reveal="left" data-delay="100" className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
             Thank You
           </h1>
-          <p className="mt-5 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
+          <p data-reveal="left" data-delay="200" className="mt-5 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
             Your enquiry has been received. Our team will connect with you soon
             to help you with consultation details and appointment confirmation.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div data-reveal="bottom" data-delay="300" className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/"
-              className="inline-flex justify-center rounded-tl-[25px] rounded-br-[25px] bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-white active:scale-95"
+              className="inline-flex cursor-pointer justify-center rounded-tl-[25px] rounded-br-[25px] bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-white active:scale-95"
             >
               Back to Home
             </Link>
             <Link
               href="tel:+918007070530"
-              className="inline-flex justify-center rounded-tl-[25px] rounded-br-[25px] border border-white/20 px-6 py-2.5 text-sm font-semibold tracking-wide text-white transition-all duration-200 hover:border-[#C9A96E] hover:text-[#C9A96E] active:scale-95"
+              className="inline-flex cursor-pointer justify-center rounded-tl-[25px] rounded-br-[25px] border border-white/20 px-6 py-2.5 text-sm font-semibold tracking-wide text-white transition-all duration-200 hover:border-white hover:bg-white hover:text-black active:scale-95"
             >
               Call +91 8007070530
             </Link>
           </div>
         </div>
 
-        <div className="border border-white/10 bg-white/[0.03] p-5 sm:p-6 lg:p-8">
+        <div data-reveal="right" data-delay="150" className="border border-white/10 bg-white/[0.03] p-5 sm:p-6 lg:p-8">
           <h2 className="text-2xl font-semibold" style={{ color: GOLD }}>
             What Happens Next?
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-4">
             {nextSteps.map((step, index) => (
-              <article key={step.title} className="border border-white/10 bg-black p-4">
+              <article key={step.title} data-reveal="bottom" data-delay={String(index * 120)} className="border border-white/10 bg-black p-4">
                 <div className="flex items-start gap-4">
                   <span
                     className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-black"

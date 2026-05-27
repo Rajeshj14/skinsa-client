@@ -16,9 +16,9 @@ const features = [
 
 export default function AboutUs() {
   return (
-    <section
+    <section id="about"
       style={{ backgroundColor: BG }}
-      className="relative w-full py-5 sm:py-16 lg:py-14 px-6 overflow-hidden"
+      className="relative w-full scroll-mt-28 py-5 sm:py-16 lg:py-14 px-6 overflow-hidden"
     >
       {/*
         Mobile  → flex-col : label, heading, images, desc, features, cta  (DOM order)
@@ -29,6 +29,7 @@ export default function AboutUs() {
 
           {/* ① Label — mobile: 1st  |  desktop: col-2 row-1 */}
           <div
+            data-reveal="top"
             className="flex items-center gap-2.5
                        mb-3 lg:mb-4
                        lg:col-start-2 lg:row-start-1"
@@ -44,6 +45,8 @@ export default function AboutUs() {
 
           {/* ② Heading — mobile: 2nd  |  desktop: col-2 row-2 */}
           <h2
+            data-reveal="right"
+            data-delay="100"
             className="text-[28px] sm:text-[34px] lg:text-[38px] font-black text-white uppercase leading-[1.12]
                        mb-4 lg:mb-5
                        lg:col-start-2 lg:row-start-2"
@@ -56,6 +59,8 @@ export default function AboutUs() {
 
           {/* ③ Images — mobile: 3rd  |  desktop: col-1, spans all rows */}
           <div
+            data-reveal="left"
+            data-delay="150"
             className="relative
                        h-[340px] sm:h-[440px] lg:h-[540px] w-full
                        mb-6 lg:mb-0
@@ -127,7 +132,7 @@ export default function AboutUs() {
           </div>
 
           {/* ④ Description — mobile: 4th  |  desktop: col-2 row-3 */}
-          <div className="mb-4 lg:mb-2 lg:col-start-2 lg:row-start-3">
+          <div data-reveal="right" data-delay="200" className="mb-4 lg:mb-2 lg:col-start-2 lg:row-start-3">
             <p className="text-[13px] sm:text-[13.5px] text-white/50 leading-relaxed mb-2 max-w-[460px]">
               Weight management is not one-size-fits-all. At SKINSA, we understand that everybody responds differently. That&apos;s why our experts create customised treatment plans designed around your body goals, lifestyle, and concerns.
             </p>
@@ -144,6 +149,8 @@ export default function AboutUs() {
           >
             {features.map((f, i) => (
               <div
+                data-reveal="bottom"
+                data-delay={String(i * 90)}
                 key={i}
                 className="flex gap-3 p-3 lg:p-4"
                 style={{
@@ -168,10 +175,10 @@ export default function AboutUs() {
           </div>
 
           {/* ⑥ CTA — mobile: 6th  |  desktop: col-2 row-5 */}
-          <div className="flex items-center gap-4 lg:col-start-2 lg:row-start-5">
+          <div data-reveal="bottom" data-delay="350" className="flex items-center gap-4 lg:col-start-2 lg:row-start-5">
             <BookingButton
               ariaLabel="Open consultation form"
-              className="inline-flex items-center gap-3 px-7 sm:px-8 py-3 text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.16em] uppercase transition-all duration-200 hover:opacity-80 active:scale-95"
+              className="inline-flex items-center gap-3 px-7 sm:px-8 py-3 text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.16em] uppercase transition-all duration-200 "
               style={{ backgroundColor: GOLD, color: '#000', borderRadius: '25px 0 25px 0' }}
             >
               More About Us
@@ -179,8 +186,7 @@ export default function AboutUs() {
             <Link
               href="#"
               aria-label="More about Skinsa"
-              className="w-11 h-11 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition-all duration-200 hover:opacity-70 active:scale-95"
-              style={{ border: `1.5px solid rgba(201,169,110,0.4)`, backgroundColor: 'rgba(201,169,110,0.08)' }}
+              className="w-11 h-11 lg:w-12 lg:h-12 cursor-pointer rounded-full flex items-center justify-center border border-[#C9A96E]/40 bg-[#C9A96E]/10 transition-all duration-200 hover:bg-white active:scale-95"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7" /><path d="M7 7h10v10" />

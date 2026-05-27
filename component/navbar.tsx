@@ -6,11 +6,11 @@ import BookingButton from "@/component/booking-button";
 const GOLD = "#C9A96E";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "About Us", href: "/about" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Why Choose Us", href: "/#why-choose-us" },
+  { label: "About Us", href: "/#about" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export default function Navbar() {

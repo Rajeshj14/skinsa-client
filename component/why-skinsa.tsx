@@ -54,21 +54,21 @@ export default function WhySkinsa() {
   }, [])
 
   return (
-    <section
-      className="w-full overflow-hidden px-6 py-0 sm:py-12 lg:py-14"
+    <section id="why-us"
+      className="w-full scroll-mt-28 overflow-hidden px-6 py-6 sm:py-12 lg:py-14"
       style={{ backgroundColor: BG }}
     >
       <div className="mx-auto max-w-7xl">
 
         {/* ── Header ── */}
-        <div className="relative mb-8 sm:mb-10 lg:mb-12">
+        <div data-reveal="top" className="relative mb-8 sm:mb-10 lg:mb-12">
           <div className="relative z-10 flex items-center gap-2.5 mb-3 lg:mb-4">
             <span className="h-[2px] w-10" style={{ backgroundColor: GOLD }} />
             <span
               className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em]"
               style={{ color: GOLD }}
             >
-              Why Choose Us
+              Why Us
             </span>
           </div>
           <h2 className="relative z-10 text-[26px] sm:text-[32px] lg:text-[38px] font-black uppercase leading-[1.15] text-white md:text-[46px]">
@@ -79,7 +79,7 @@ export default function WhySkinsa() {
         {/* ══════════════════════════════
             MOBILE — auto-scrolling carousel
         ══════════════════════════════ */}
-        <div className="md:hidden -mx-6">
+        <div data-reveal="bottom" data-delay="150" className="md:hidden -mx-6">
           <div
             ref={scrollRef}
             className="flex gap-4 overflow-x-auto scrollbar-hide px-6"
@@ -117,20 +117,26 @@ export default function WhySkinsa() {
           {/* Row 1 — 3 cards */}
           <div className="grid grid-cols-3 gap-4 lg:gap-5">
             {reasons.slice(0, 3).map((reason, index) => (
-              <ReasonCard key={reason} number={index + 1} title={reason} />
+              <div key={reason} data-reveal="bottom" data-delay={String(index * 90)}>
+                <ReasonCard number={index + 1} title={reason} />
+              </div>
             ))}
           </div>
 
           {/* Row 2 — 2 cards centred */}
           <div className="mx-auto grid max-w-[850px] grid-cols-2 gap-4 lg:gap-5">
             {reasons.slice(3, 5).map((reason, index) => (
-              <ReasonCard key={reason} number={index + 4} title={reason} />
+              <div key={reason} data-reveal="bottom" data-delay={String((index + 3) * 90)}>
+                <ReasonCard number={index + 4} title={reason} />
+              </div>
             ))}
           </div>
 
           {/* Row 3 — 1 card centred */}
           <div className="mx-auto max-w-[420px]">
-            <ReasonCard number={6} title={reasons[5]} />
+            <div data-reveal="bottom" data-delay="450">
+              <ReasonCard number={6} title={reasons[5]} />
+            </div>
           </div>
 
         </div>

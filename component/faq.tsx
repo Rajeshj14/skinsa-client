@@ -38,8 +38,8 @@ export default function FAQ() {
   const [open, setOpen] = useState(0)
 
   return (
-    <section
-      className="w-full py-12 sm:py-16 lg:py-20 px-6 overflow-hidden"
+    <section id="faq"
+      className="w-full scroll-mt-28 py-12 sm:py-16 lg:py-20 px-6 overflow-hidden"
       style={{ backgroundColor: BG }}
     >
       {/*
@@ -51,6 +51,7 @@ export default function FAQ() {
 
           {/* ① Label — mobile: 1st  |  desktop: col-2 row-1 */}
           <div
+            data-reveal="top"
             className="relative flex items-center gap-2.5 z-10
                        mb-2 lg:mb-3
                        lg:col-start-2 lg:row-start-1"
@@ -67,6 +68,8 @@ export default function FAQ() {
 
           {/* ② Heading — mobile: 2nd  |  desktop: col-2 row-2 */}
           <h2
+            data-reveal="right"
+            data-delay="100"
             className="relative text-[26px] sm:text-[32px] lg:text-[38px] font-black text-white uppercase leading-[1.18] z-10
                        mb-6 lg:mb-8
                        lg:col-start-2 lg:row-start-2"
@@ -80,6 +83,8 @@ export default function FAQ() {
 
           {/* ③ Images — mobile: 3rd  |  desktop: col-1 spans all rows */}
           <div
+            data-reveal="left"
+            data-delay="150"
             className="relative
                        h-[280px] sm:h-[380px] lg:h-[600px]
                        mb-6 lg:mb-0
@@ -129,21 +134,22 @@ export default function FAQ() {
 
           {/* ④ Accordion — mobile: 4th  |  desktop: col-2 row-3 */}
           <div
+            data-reveal="right"
+            data-delay="220"
             className="relative z-10 space-y-[8px] sm:space-y-[10px]
                        lg:col-start-2 lg:row-start-3"
           >
             {faqs.map((faq, i) => {
               const isOpen = open === i
               return (
-                <div key={i} className="overflow-hidden" style={{ borderRadius: '4px' }}>
+                <div key={i} data-reveal="bottom" data-delay={String(i * 80)} className="overflow-hidden" style={{ borderRadius: '4px' }}>
 
                   {/* Question row */}
                   <button
                     onClick={() => setOpen(isOpen ? -1 : i)}
-                    className="w-full flex items-center justify-between px-4 sm:px-5 py-[12px] sm:py-[14px] text-left text-[11px] sm:text-[12px] font-bold tracking-[0.09em] uppercase transition-colors duration-200"
+                    className="w-full cursor-pointer flex items-center justify-between px-4 sm:px-5 py-[12px] sm:py-[14px] text-left text-[11px] sm:text-[12px] font-bold tracking-[0.09em] uppercase text-white transition-colors duration-200 hover:bg-white hover:text-black"
                     style={{
-                      backgroundColor: isOpen ? GOLD : 'transparent',
-                      color:           '#ffffff',
+                      backgroundColor: isOpen ? GOLD : undefined,
                       border:          isOpen ? 'none' : '1px solid rgba(255,255,255,0.2)',
                     }}
                   >
@@ -182,10 +188,10 @@ export default function FAQ() {
         </div>
 
         {/* ── Bottom CTA — centred ── */}
-        <div className="flex justify-center mt-5 sm:mt-12 lg:mt-14">
+        <div data-reveal="bottom" data-delay="300" className="flex justify-center mt-5 sm:mt-12 lg:mt-14">
           <BookingButton
             ariaLabel="Book your consultation"
-            className="inline-flex items-center gap-3 px-9 sm:px-12 py-3.5 text-[12px] sm:text-[13px] font-bold tracking-[0.18em] uppercase transition-all duration-200 hover:opacity-80 active:scale-95"
+            className="inline-flex items-center gap-3 px-9 sm:px-12 py-3.5 text-[12px] sm:text-[13px] font-bold tracking-[0.18em] uppercase transition-all duration-200"
             style={{
               backgroundColor: GOLD,
               color: '#000',

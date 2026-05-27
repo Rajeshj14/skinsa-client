@@ -28,9 +28,9 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section
+    <section id="why-choose-us"
       style={{ backgroundColor: BG }}
-      className="w-full py-5 sm:py-16 lg:py-20 px-6 overflow-hidden"
+      className="w-full scroll-mt-28 py-5 sm:py-16 lg:py-20 px-6 overflow-hidden"
     >
       {/*
         Mobile  → flex-col : label, heading, images, features  (DOM order)
@@ -41,6 +41,7 @@ export default function WhyUs() {
 
           {/* ① Label — mobile: 1st  |  desktop: col-1 row-1 */}
           <div
+            data-reveal="top"
             className="relative flex items-center gap-2.5 z-10
                        mb-3 lg:mb-4
                        lg:col-start-1 lg:row-start-1"
@@ -56,6 +57,8 @@ export default function WhyUs() {
 
           {/* ② Heading — mobile: 2nd  |  desktop: col-1 row-2 */}
           <h2
+            data-reveal="left"
+            data-delay="100"
             className="relative text-[28px] sm:text-[34px] lg:text-[38px] font-black text-white uppercase leading-[1.15] z-10
                        mb-5 lg:mb-5
                        lg:col-start-1 lg:row-start-2"
@@ -69,6 +72,8 @@ export default function WhyUs() {
 
           {/* ③ Images — mobile: 3rd  |  desktop: col-2, spans all rows */}
           <div
+            data-reveal="right"
+            data-delay="150"
             className="relative grid grid-cols-2 gap-2 sm:gap-3
                        mb-6 lg:mb-0
                        lg:col-start-2 lg:row-start-1 lg:row-span-3"
@@ -141,11 +146,13 @@ export default function WhyUs() {
 
           {/* ④ Feature list — mobile: 4th  |  desktop: col-1 row-3 */}
           <div
+            data-reveal="left"
+            data-delay="220"
             className="relative z-10
                        lg:col-start-1 lg:row-start-3"
           >
             {features.map((f, i) => (
-              <div key={i} className="flex gap-4 sm:gap-5">
+              <div key={i} data-reveal="bottom" data-delay={String(i * 90)} className="flex gap-4 sm:gap-5">
                 <div className="flex flex-col items-center shrink-0">
                   <div
                     className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-[11px] sm:text-[12px] font-bold text-white"

@@ -2,27 +2,28 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import BookingButton from './booking-button'
 
 const GOLD = '#C9A96E'
 const DIR  = '/Before-after-statics'
 
 const images = [
-  { src: `${DIR}/KRUPA FATLOSS PPT - 1.jpg`,   label: 'Fat Loss'           },
-  { src: `${DIR}/KRUPA FATLOSS PPT - 2.jpg`,   label: 'Fat Loss'           },
+  // { src: `${DIR}/KRUPA FATLOSS PPT - 1.jpg`,   label: 'Fat Loss'           },
+  // { src: `${DIR}/KRUPA FATLOSS PPT - 2.jpg`,   label: 'Fat Loss'           },
   { src: `${DIR}/KRUPA FATLOSS PPT - 3.jpg`,   label: 'Fat Loss'           },
-  { src: `${DIR}/RAMESH DHANEKUL - 1.jpg`,     label: 'Body Transformation' },
+  // { src: `${DIR}/RAMESH DHANEKUL - 1.jpg`,     label: 'Body Transformation' },
   { src: `${DIR}/RAMESH DHANEKUL - 2.jpg`,     label: 'Body Transformation' },
   { src: `${DIR}/pradnya khaldkar - 1.png`,    label: 'Body Contouring'    },
   { src: `${DIR}/pradnya khaldkar - 2.png`,    label: 'Body Contouring'    },
-  { src: `${DIR}/priyanka kalamkar - 1.jpg`,   label: 'Inch Loss'          },
+  // { src: `${DIR}/priyanka kalamkar - 1.jpg`,   label: 'Inch Loss'          },
   { src: `${DIR}/priyanka kalamkar - 2.jpg`,   label: 'Inch Loss'          },
-  { src: `${DIR}/shraddha ahwale - 1.jpg`,     label: 'Weight Management'  },
+  // { src: `${DIR}/shraddha ahwale - 1.jpg`,     label: 'Weight Management'  },
   { src: `${DIR}/shraddha ahwale - 2.jpg`,     label: 'Weight Management'  },
   { src: `${DIR}/somnath ahwale - 1.jpg`,      label: 'Sculpting'          },
-  { src: `${DIR}/somnath ahwale - 2.jpg`,      label: 'Sculpting'          },
+  // { src: `${DIR}/somnath ahwale - 2.jpg`,      label: 'Sculpting'          },
   { src: `${DIR}/anamika.jpg`,                 label: 'Transformation'     },
   { src: `${DIR}/mangesh zombade.jpg`,          label: 'Transformation'     },
-  { src: `${DIR}/Minimalist Before After Salon & Makeup Instagram Post - 1.png`, label: 'Before & After' },
+  // { src: `${DIR}/Minimalist Before After Salon & Makeup Instagram Post - 1.png`, label: 'Before & After' },
   { src: `${DIR}/Minimalist Before After Salon & Makeup Instagram Post - 2.png`, label: 'Before & After' },
 ]
 
@@ -65,11 +66,11 @@ export default function BeforeAfter() {
   }, [])
 
   return (
-    <section className="w-full bg-black py-12 sm:py-16 lg:py-20 overflow-hidden">
+    <section className="w-full bg-black py-6 sm:py-16 lg:py-10 overflow-hidden">
 
       {/* ── Section Header ── */}
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col items-center text-center mb-10 sm:mb-12 lg:mb-14">
+        <div data-reveal="top" className="flex flex-col items-center text-center mb-6 sm:mb-12 lg:mb-8">
 
           <div className="flex items-center gap-3 mb-3">
             <span className="h-[1px] w-10 lg:w-16" style={{ backgroundColor: GOLD }} />
@@ -79,7 +80,7 @@ export default function BeforeAfter() {
             <span className="h-[1px] w-10 lg:w-16" style={{ backgroundColor: GOLD }} />
           </div>
 
-          <h2 className="text-[26px] sm:text-[34px] lg:text-[40px] font-black text-white uppercase tracking-[0.03em] leading-tight mb-3">
+          <h2 className="text-[26px] sm:text-[34px] lg:text-[40px] font-black text-white uppercase tracking-[0.03em] leading-tight mb-1">
             Before & <span style={{ color: GOLD }}>After</span>
           </h2>
 
@@ -91,7 +92,7 @@ export default function BeforeAfter() {
       </div>
 
       {/* ── Auto-scrolling Carousel ── */}
-      <div className="relative">
+      <div data-reveal="bottom" data-delay="180" className="relative">
 
         {/* Left fade */}
         <div
@@ -150,9 +151,31 @@ export default function BeforeAfter() {
       </div>
 
       {/* Disclaimer */}
-      <p className="text-center text-[10.5px] text-white/20 mt-8 px-6 tracking-wide">
+      <p data-reveal="bottom" data-delay="260" className="text-center text-[15.5px] text-white/80 mt-8 px-6 tracking-wide">
         Individual results may vary. All treatments performed under professional supervision.
       </p>
+              {/* ── CTA Button ── */}
+              <div data-reveal="bottom" data-delay="340" className="flex justify-center mt-4">
+                <BookingButton
+                  ariaLabel="Book free consultation"
+                  className="inline-flex items-center gap-2.5 sm:gap-3 rounded-tl-[25px] rounded-br-[25px] border px-8 sm:px-10 py-3 sm:py-3.5 text-[12px] sm:text-[13.5px] font-semibold tracking-[0.12em] uppercase transition-all duration-200 hover:bg-white hover:border-white hover:text-black active:scale-95"
+                  style={{
+                    borderColor: GOLD,
+                    color: GOLD,
+                  }}
+                >
+                  <svg
+                    width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" strokeWidth="2"
+                    strokeLinecap="round" strokeLinejoin="round"
+                    className="sm:w-4 sm:h-4"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <path d="M16 2v4M8 2v4M3 10h18" />
+                  </svg>
+                  Book Free Consultation
+                </BookingButton>
+              </div>
 
     </section>
   )

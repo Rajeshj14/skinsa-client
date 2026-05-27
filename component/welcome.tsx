@@ -11,7 +11,7 @@ const stats = [
 
 export default function Welcome() {
   return (
-    <section className="w-full bg-black overflow-hidden">
+    <section id="services" className="w-full scroll-mt-28 bg-black overflow-hidden">
 
       {/* ══════════════════════════════
           TOP — Layout
@@ -23,6 +23,7 @@ export default function Welcome() {
 
           {/* ① Label — mobile: 1st  |  desktop: col-2 row-1 */}
           <p
+            data-reveal="top"
             className="text-[11px] sm:text-[12px] font-bold tracking-[0.28em] uppercase
                        mb-3 lg:mb-4
                        lg:col-start-2 lg:row-start-1"
@@ -33,6 +34,8 @@ export default function Welcome() {
 
           {/* ② Heading — mobile: 2nd  |  desktop: col-2 row-2 */}
           <h2
+            data-reveal="right"
+            data-delay="100"
             className="text-[28px] sm:text-[34px] lg:text-[42px] font-black text-white leading-[1.1]
                        mb-5 lg:mb-6
                        lg:col-start-2 lg:row-start-2"
@@ -43,6 +46,8 @@ export default function Welcome() {
 
           {/* ③ Images — mobile: 3rd  |  desktop: col-1, spans all rows */}
           <div
+            data-reveal="left"
+            data-delay="150"
             className="relative flex gap-3 lg:gap-4
                        h-[240px] sm:h-[320px] lg:h-[420px]
                        mb-5 lg:mb-0
@@ -99,6 +104,8 @@ export default function Welcome() {
 
           {/* ④ Description — mobile: 4th  |  desktop: col-2 row-3 */}
           <p
+            data-reveal="right"
+            data-delay="200"
             className="text-[13px] sm:text-[14px] text-white/55 leading-relaxed
                        mb-6 lg:mb-8 max-w-[460px]
                        lg:col-start-2 lg:row-start-3"
@@ -111,13 +118,15 @@ export default function Welcome() {
 
           {/* ⑤ CTA — mobile: 5th  |  desktop: col-2 row-4 */}
           <div className="lg:col-start-2 lg:row-start-4">
+            <div data-reveal="bottom" data-delay="300">
             <BookingButton
               ariaLabel="Open consultation form"
-              className="inline-flex items-center gap-3 px-8 sm:px-10 py-3 sm:py-3.5 text-[11.5px] rounded-tl-[25px] rounded-br-[25px] sm:text-[12.5px] font-bold tracking-[0.2em] uppercase transition-all duration-200 hover:opacity-80 active:scale-95"
+              className="inline-flex items-center gap-3 px-8 sm:px-10 py-3 sm:py-3.5 text-[11.5px] rounded-tl-[25px] rounded-br-[25px] sm:text-[12.5px] font-bold tracking-[0.2em] uppercase transition-all duration-200"
               style={{ backgroundColor: GOLD, color: '#000' }}
             >
               Yes, I&apos;m Ready!
             </BookingButton>
+            </div>
           </div>
 
         </div>
@@ -132,7 +141,7 @@ export default function Welcome() {
       >
         <div className="mx-auto max-w-7xl px-6 py-5 sm:py-10 lg:py-14 grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {stats.map((s, i) => (
-            <div key={i} className="flex flex-col items-center text-center">
+            <div key={i} data-reveal="bottom" data-delay={String(i * 120)} className="flex flex-col items-center text-center">
               <div className="flex items-end leading-none mb-1 lg:mb-2">
                 <span className="text-[32px] sm:text-[44px] lg:text-[58px] font-black text-white leading-none tracking-tight">
                   {s.value}

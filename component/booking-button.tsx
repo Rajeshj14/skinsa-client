@@ -21,6 +21,7 @@ export default function BookingButton({
 }: BookingButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isTriggerHovered, setIsTriggerHovered] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -66,9 +67,16 @@ export default function BookingButton({
       <button
         type="button"
         onClick={() => setIsOpen(true)}
+        onMouseEnter={() => setIsTriggerHovered(true)}
+        onMouseLeave={() => setIsTriggerHovered(false)}
         aria-label={ariaLabel}
-        className={className}
-        style={style}
+        className={`cursor-pointer ${className || ""}`}
+        style={{
+          ...style,
+          ...(isTriggerHovered
+            ? { backgroundColor: "#ffffff", borderColor: "#ffffff", color: "#000000" }
+            : {}),
+        }}
       >
         {children}
       </button>
@@ -80,7 +88,7 @@ export default function BookingButton({
               type="button"
               onClick={() => setIsOpen(false)}
               aria-label="Close booking form"
-              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white transition hover:bg-white hover:text-black"
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/70 text-white transition hover:bg-white hover:text-black"
             >
               <span aria-hidden="true" className="text-2xl leading-none">
                 &times;
@@ -182,8 +190,7 @@ export default function BookingButton({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="mt-2 rounded-tl-[25px] rounded-br-[25px] px-6 py-3 text-sm font-bold tracking-[0.14em] text-black transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:opacity-70"
-                  style={{ backgroundColor: GOLD }}
+                  className="mt-2 cursor-pointer rounded-tl-[25px] rounded-br-[25px] bg-[#C9A96E] px-6 py-3 text-sm font-bold tracking-[0.14em] text-black transition hover:bg-white  disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {isSubmitting ? "Submitting..." : "Submit Request"}
                 </button>

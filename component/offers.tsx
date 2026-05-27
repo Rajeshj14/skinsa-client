@@ -27,7 +27,7 @@ export default function Offers() {
       <div className="mx-auto max-w-5xl">
 
         {/* ── Section Header ── */}
-        <div className="flex flex-col items-center text-center mb-6 lg:mb-16">
+        <div data-reveal="top" className="flex flex-col items-center text-center mb-6 lg:mb-16">
 
           {/* Label with side lines */}
           <div className="flex items-center gap-3 lg:gap-4 mb-3 lg:mb-4">
@@ -63,6 +63,8 @@ export default function Offers() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 lg:mb-14">
           {offers.map((offer) => (
             <div
+              data-reveal={offer.tag === '01' ? 'left' : 'right'}
+              data-delay={String(Number(offer.tag) * 120)}
               key={offer.tag}
               className="relative flex flex-col overflow-hidden"
               style={{
@@ -165,7 +167,7 @@ export default function Offers() {
         </div>
 
         {/* ── CTA Button ── */}
-        <div className="flex justify-center">
+        <div data-reveal="bottom" data-delay="300" className="flex justify-center">
           <BookingButton
             ariaLabel="Book free consultation"
             className="inline-flex items-center gap-2.5 sm:gap-3 rounded-tl-[25px] rounded-br-[25px] border px-8 sm:px-10 py-3 sm:py-3.5 text-[12px] sm:text-[13.5px] font-semibold tracking-[0.12em] uppercase transition-all duration-200 hover:bg-white hover:border-white hover:text-black active:scale-95"

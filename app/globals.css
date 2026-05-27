@@ -40,6 +40,51 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+[data-reveal] {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translate3d(0, 42px, 0);
+  transition:
+    opacity 900ms ease,
+    filter 900ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
+}
+
+[data-reveal="left"] {
+  transform: translate3d(-56px, 0, 0);
+}
+
+[data-reveal="right"] {
+  transform: translate3d(56px, 0, 0);
+}
+
+[data-reveal="top"] {
+  transform: translate3d(0, -44px, 0);
+}
+
+[data-reveal="bottom"] {
+  transform: translate3d(0, 44px, 0);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Hide scrollbar but keep scroll functionality */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
