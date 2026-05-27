@@ -42,17 +42,17 @@ export default function Hero() {
 
         {/* Gold vertical bar */}
         <div
-          className="absolute left-0 top-12 bottom-14 lg:top-20 lg:bottom-20 w-[3px]"
+          className="absolute left-0 top-12 bottom-14 hidden w-[3px] sm:block lg:top-20 lg:bottom-20"
           style={{ backgroundColor: GOLD }}
         />
 
         {/* ── Label ── */}
-        <div data-reveal="top" className="flex items-center gap-2.5 mb-5 lg:mb-6">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill={GOLD}>
+        <div data-reveal="bottom" className="relative z-10 flex min-h-5 items-center gap-2.5 mb-3 sm:mb-5 lg:mb-6">
+          <svg className="h-2.5 w-2.5 shrink-0" viewBox="0 0 24 24" fill={GOLD}>
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
           </svg>
           <span
-            className="text-[11px] font-bold tracking-[0.4em] uppercase"
+            className="block text-[10px] font-bold tracking-[0.26em] uppercase leading-none sm:text-[11px] sm:tracking-[0.4em]"
             style={{ color: GOLD }}
           >
             Skinsa Aesthetic Clinic

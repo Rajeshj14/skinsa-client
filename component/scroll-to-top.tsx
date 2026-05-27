@@ -11,7 +11,7 @@ export default function ScrollToTop() {
     <button
       onClick={handleClick}
       aria-label="Scroll to top"
-      className="fixed right-3 bottom-35 translate-y-1/2 z-50 flex flex-col items-center gap-3 cursor-pointer group"
+      className="fixed right-3 bottom-35 translate-y-1/2 z-50 hidden flex-col items-center gap-3 cursor-pointer group md:flex"
       style={{ paddingLeft: '10px' }}
     >
       {/* Rotated label */}

@@ -90,12 +90,6 @@ export default function FAQ() {
                        mb-6 lg:mb-0
                        lg:col-start-1 lg:row-start-1 lg:row-span-3"
           >
-            {/* Vertical gold accent bar */}
-            <div
-              className="absolute left-8 sm:left-10 lg:left-15 top-8 sm:top-10 bottom-8 sm:bottom-10
-                         w-[10px] sm:w-[12px] lg:w-[15px] rounded-full z-10"
-              style={{ backgroundColor: GOLD }}
-            />
 
             {/* Top image — large, right-anchored */}
             <div className="absolute right-0 top-0 w-[80%] h-[90%] rounded-xl lg:rounded-2xl overflow-hidden">

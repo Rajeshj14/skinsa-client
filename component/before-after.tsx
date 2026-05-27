@@ -10,7 +10,7 @@ const DIR  = '/Before-after-statics'
 const images = [
   // { src: `${DIR}/KRUPA FATLOSS PPT - 1.jpg`,   label: 'Fat Loss'           },
   // { src: `${DIR}/KRUPA FATLOSS PPT - 2.jpg`,   label: 'Fat Loss'           },
-  { src: `${DIR}/KRUPA FATLOSS PPT - 3.jpg`,   label: 'Fat Loss'           },
+  // { src: `${DIR}/KRUPA FATLOSS PPT - 3.jpg`,   label: 'Fat Loss'           },
   // { src: `${DIR}/RAMESH DHANEKUL - 1.jpg`,     label: 'Body Transformation' },
   { src: `${DIR}/RAMESH DHANEKUL - 2.jpg`,     label: 'Body Transformation' },
   { src: `${DIR}/pradnya khaldkar - 1.png`,    label: 'Body Contouring'    },
@@ -18,11 +18,11 @@ const images = [
   // { src: `${DIR}/priyanka kalamkar - 1.jpg`,   label: 'Inch Loss'          },
   { src: `${DIR}/priyanka kalamkar - 2.jpg`,   label: 'Inch Loss'          },
   // { src: `${DIR}/shraddha ahwale - 1.jpg`,     label: 'Weight Management'  },
-  { src: `${DIR}/shraddha ahwale - 2.jpg`,     label: 'Weight Management'  },
-  { src: `${DIR}/somnath ahwale - 1.jpg`,      label: 'Sculpting'          },
+  // { src: `${DIR}/shraddha ahwale - 2.jpg`,     label: 'Weight Management'  },
+  // { src: `${DIR}/somnath ahwale - 1.jpg`,      label: 'Sculpting'          },
   // { src: `${DIR}/somnath ahwale - 2.jpg`,      label: 'Sculpting'          },
   { src: `${DIR}/anamika.jpg`,                 label: 'Transformation'     },
-  { src: `${DIR}/mangesh zombade.jpg`,          label: 'Transformation'     },
+  // { src: `${DIR}/mangesh zombade.jpg`,          label: 'Transformation'     },
   // { src: `${DIR}/Minimalist Before After Salon & Makeup Instagram Post - 1.png`, label: 'Before & After' },
   { src: `${DIR}/Minimalist Before After Salon & Makeup Instagram Post - 2.png`, label: 'Before & After' },
 ]
@@ -114,7 +114,7 @@ export default function BeforeAfter() {
           {[...images, ...images].map((img, idx) => (
             <div
               key={idx}
-              className="relative shrink-0 w-[420px] sm:w-[260px] lg:w-[700px] h-[340px] sm:h-[420px] lg:h-[460px] overflow-hidden group"
+              className="relative shrink-0 w-[314px] sm:w-[260px] lg:w-[700px] h-[262px] sm:h-[420px] lg:h-[460px] overflow-hidden group"
               style={{
                 borderRadius: '32px 0 32px 0',
                 border: '1px solid rgba(201,169,110,0.18)',
