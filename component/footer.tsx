@@ -93,7 +93,7 @@ export default function Footer() {
           <div className="mt-5 overflow-hidden rounded-tl-[32px] rounded-br-[32px] border border-white/15 bg-white/5">
             <iframe
               title="Skinsa Aesthetic Clinic location map"
-              src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d121028.18764918673!2d73.909176!3d18.568138!3m2!1i1024!2i768!4f13.1!2m1!1sShop%20no%20101%2C102%2C%20B%20wing%2C%20shubh%20gateway%2C%20Opp.Symbiosis%20law%20school%2C%20viman%20Nagar%2C%20pune%2C%20Mh%20411014!5e0!3m2!1sen!2sus!4v1779862978082!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d42017.06488967416!2d73.89896950179276!3d18.583703416770764!3m2!1i1024!2i768!4f13.1!2m1!1sShop%20no%20101%2C102%2C%20B%20wing%2C%20shubh%20gateway%2C%20Opp.Symbiosis%20law%20school%2C%20viman%20Nagar%2C%20pune%2C%20Mh%20411014!5e0!3m2!1sen!2sus!4v1779885414989!5m2!1sen!2sus"
               className="h-[240px] w-full border-0 sm:h-[280px] lg:h-[260px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

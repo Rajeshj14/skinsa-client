@@ -36,7 +36,7 @@ export default function Hero() {
           pl-8 sm:pl-12 lg:pl-12 xl:pl-20
           pr-8 lg:pr-8
           pt-5 sm:pt-14 lg:pt-10
-          pb-5 lg:pb-16
+          pb-13 lg:pb-16
         "
       >
 
@@ -94,6 +94,56 @@ export default function Hero() {
         </div>
 
         {/* ── Services 2×2 ── */}
+        {/* Mobile only: image comes after description */}
+        <div data-reveal="bottom" data-delay="250" className="block sm:hidden relative w-full pb-5">
+          <div
+            className="relative w-full h-[300px] overflow-hidden"
+            style={{
+              borderRadius: '40px 0 40px 0',
+              border: `1.5px solid rgba(201,169,110,0.4)`,
+            }}
+          >
+            <Image
+              src="/banner.png"
+              alt="Skinsa Body Treatment"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/20" />
+
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {[0, 1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full"
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    border: '1px solid rgba(201,169,110,0.6)',
+                    animation: 'waveRing 3.2s cubic-bezier(0,0,0.2,1) infinite',
+                    animationDelay: `${i * 0.8}s`,
+                  }}
+                />
+              ))}
+            </div>
+
+            <div
+              className="absolute bottom-4 left-4 right-4 z-10 px-4 py-2.5 flex items-center gap-3"
+              style={{
+                backgroundColor: 'rgba(0,0,0,0.72)',
+                borderRadius: '10px 0 10px 0',
+                border: `1px solid rgba(201,169,110,0.3)`,
+              }}
+            >
+              <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: GOLD }} />
+              <span className="text-[11.5px] font-semibold text-white/80 tracking-wide">
+                100% Non-Surgical - Advanced Body Contouring
+              </span>
+            </div>
+          </div>
+        </div>
+
         <div data-reveal="bottom" data-delay="300" className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 sm:gap-y-2.5 mb-7 lg:mb-8">
           {services.map((s) => (
             <div key={s.no} className="flex items-center gap-2.5">
@@ -140,7 +190,7 @@ export default function Hero() {
       {/* ══════════════════════════════
           MOBILE / TABLET — Image below content
       ══════════════════════════════ */}
-      <div data-reveal="bottom" data-delay="250" className="block lg:hidden relative w-full px-6 sm:px-10 pb-16 mt-2">
+      <div data-reveal="bottom" data-delay="250" className="hidden sm:block lg:hidden relative w-full px-6 sm:px-10 pb-16 mt-2">
         <div
           className="relative w-full h-[300px] sm:h-[380px] overflow-hidden"
           style={{

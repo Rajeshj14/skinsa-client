@@ -42,6 +42,11 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 [data-reveal] {
@@ -82,6 +87,21 @@ html {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+@media (max-width: 767px) {
+  [data-reveal="left"],
+  [data-reveal="right"] {
+    transform: translate3d(0, 34px, 0);
+  }
+
+  [data-reveal="top"] {
+    transform: translate3d(0, -24px, 0);
+  }
+
+  [data-reveal="bottom"] {
+    transform: translate3d(0, 34px, 0);
   }
 }
 
