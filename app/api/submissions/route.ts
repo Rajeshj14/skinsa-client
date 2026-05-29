@@ -9,7 +9,6 @@ const HEADERS = [
   'Source',
   'Name',
   'Phone',
-  'Email',
   'Condition',
   'URL',
   'TeleCRM',
@@ -21,7 +20,6 @@ type SubmissionBody = {
   source: string;
   name: string;
   phone: string;
-  email: string;
   concern: string;
   pageUrl: string;
 };
@@ -42,7 +40,6 @@ function normalizeSubmission(body: Record<string, unknown>): SubmissionBody {
     source: toText(body.source) || 'Consultation Modal',
     name: toText(body.name),
     phone: toText(body.phone),
-    email: toText(body.email),
     concern: toText(body.concern) || toText(body.condition),
     pageUrl: toText(body.pageUrl),
   };
@@ -89,7 +86,6 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
     body.source,
     body.name,
     body.phone,
-    body.email,
     body.concern,
     body.pageUrl,
     telecrmStatus,
@@ -103,7 +99,6 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
       source: body.source,
       name: body.name,
       phone: body.phone,
-      email: body.email,
       concern: body.concern,
       condition: body.concern,
       pageUrl: body.pageUrl,
@@ -157,7 +152,6 @@ async function pushToTeleCRM(body: SubmissionBody): Promise<TelecrmResponse | nu
       { type: 'SYSTEM_NOTE', text: `Source: ${body.source || 'Website'}` },
       { type: 'SYSTEM_NOTE', text: `URL: ${body.pageUrl || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Condition: ${body.concern || 'Not specified'}` },
-      { type: 'SYSTEM_NOTE', text: `Email: ${body.email || 'Not specified'}` },
     ],
   };
 
@@ -241,7 +235,6 @@ export async function POST(req: NextRequest) {
       body.source,
       body.name,
       body.phone,
-      body.email,
       body.concern,
       body.pageUrl,
       telecrmStatus,

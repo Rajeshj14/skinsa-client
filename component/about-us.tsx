@@ -2,7 +2,7 @@ import Image from 'next/image'
 import BookingButton from '@/component/booking-button'
 
 const GOLD = '#C9A96E'
-const BG   = '#0D0D0D'
+const BG   = '#FFFFFF'
 
 const features = [
   { title: 'Non-invasive and comfortable procedures' },
@@ -46,7 +46,7 @@ export default function AboutUs() {
           <h2
             data-reveal="right"
             data-delay="100"
-            className="text-[28px] sm:text-[34px] lg:text-[38px] font-black text-white uppercase leading-[1.12]
+            className="text-[28px] sm:text-[34px] lg:text-[38px] font-black text-[#0F3F37] uppercase leading-[1.12]
                        mb-4 lg:mb-5
                        lg:col-start-2 lg:row-start-2"
           >
@@ -132,10 +132,10 @@ export default function AboutUs() {
 
           {/* ④ Description — mobile: 4th  |  desktop: col-2 row-3 */}
           <div data-reveal="right" data-delay="200" className="mb-4 lg:mb-2 lg:col-start-2 lg:row-start-3">
-            <p className="text-[13px] sm:text-[13.5px] text-white/50 leading-relaxed mb-2 max-w-[460px]">
+            <p className="text-[13px] sm:text-[13.5px] text-black/60 leading-relaxed mb-2 max-w-[460px]">
               Weight management is not one-size-fits-all. At SKINSA, we understand that everybody responds differently. That&apos;s why our experts create customised treatment plans designed around your body goals, lifestyle, and concerns.
             </p>
-            <p className="text-[13px] sm:text-[13.5px] text-white/50 leading-relaxed max-w-[460px]">
+            <p className="text-[13px] sm:text-[13.5px] text-black/60 leading-relaxed max-w-[460px]">
               Using advanced non-surgical technologies and wellness-focused approaches, we help target stubborn fat, improve body contour, and support visible inch loss, all without disrupting your daily routine!
             </p>
           </div>
@@ -153,8 +153,8 @@ export default function AboutUs() {
                 key={i}
                 className="flex gap-3 p-3 lg:p-4"
                 style={{
-                  backgroundColor: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(201,169,110,0.15)',
+                  backgroundColor: 'rgba(15,63,55,0.04)',
+                  border: '1px solid rgba(15,63,55,0.12)',
                   borderRadius: '16px 0 16px 0',
                 }}
               >
@@ -166,7 +166,7 @@ export default function AboutUs() {
                     <path d="M7 17L17 7" /><path d="M7 7h10v10" />
                   </svg>
                 </div>
-                <h3 className="text-[12px] sm:text-[13px] lg:text-[13.5px] font-bold text-white leading-snug pt-0.5">
+                <h3 className="text-[12px] sm:text-[13px] lg:text-[13.5px] font-bold text-[#0F3F37] leading-snug pt-0.5">
                   {f.title}
                 </h3>
               </div>
@@ -178,13 +178,13 @@ export default function AboutUs() {
             <BookingButton
               ariaLabel="Open consultation form"
               className="inline-flex items-center gap-3 px-7 sm:px-8 py-3 text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.16em] uppercase transition-all duration-200 "
-              style={{ backgroundColor: GOLD, color: '#000', borderRadius: '25px 0 25px 0' }}
+              style={{ backgroundColor: GOLD, color: '#000' }}
             >
               More About Us
             </BookingButton>
             <BookingButton
               ariaLabel="More about Skinsa"
-              className="w-11 h-11 lg:w-12 lg:h-12 cursor-pointer rounded-full flex items-center justify-center border border-[#C9A96E]/40 bg-[#C9A96E]/10 transition-all duration-200 hover:bg-white active:scale-95"
+              className="w-11 h-11 lg:w-12 lg:h-12 cursor-pointer flex items-center justify-center border border-[#C9A96E]/40 bg-[#C9A96E]/10 transition-all duration-200 hover:bg-white active:scale-95"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7" /><path d="M7 7h10v10" />

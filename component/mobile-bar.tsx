@@ -7,7 +7,7 @@ const DISPLAY_PHONE = "+91 80070 70530";
 
 export default function MobileActionBar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex border-t border-white/15 bg-black shadow-[0_-8px_24px_rgba(0,0,0,0.25)] md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex border-t border-[#0F3F37]/15 bg-white shadow-[0_-8px_24px_rgba(0,0,0,0.12)] md:hidden">
       <a
         href={`tel:${PHONE_NUMBER}`}
         aria-label={`Call Skinsa Aesthetic at ${DISPLAY_PHONE}`}
@@ -30,7 +30,7 @@ export default function MobileActionBar() {
 
       <BookingButton
         ariaLabel="Book appointment"
-        className="flex flex-1 items-center justify-center gap-2 border-l border-white/15 bg-black py-4 text-sm font-semibold text-white transition active:scale-95"
+        className="flex flex-1 items-center justify-center gap-2 border-l border-[#0F3F37]/15 bg-white py-4 text-sm font-semibold text-[#0F3F37] transition active:scale-95"
       >
         <svg
           aria-hidden="true"

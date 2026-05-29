@@ -40,7 +40,6 @@ export default function BookingButton({
       source: "Website Popup Form",
       name: String(formData.get("name") || ""),
       phone: String(formData.get("phone") || ""),
-      email: String(formData.get("email") || ""),
       concern: String(formData.get("concern") || ""),
       pageUrl: window.location.href,
     };
@@ -79,8 +78,9 @@ export default function BookingButton({
         className={`cursor-pointer ${className || ""}`}
         style={{
           ...style,
+          borderRadius: 0,
           ...(isTriggerHovered
-            ? { backgroundColor: "#ffffff", borderColor: "#ffffff", color: "#000000" }
+            ? { backgroundColor: GOLD, borderColor: GOLD, color: "#000000" }
             : {}),
         }}
       >
@@ -98,7 +98,7 @@ export default function BookingButton({
               type="button"
               onClick={() => setIsOpen(false)}
               aria-label="Close booking form"
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/80 text-white transition hover:bg-white hover:text-black"
+              className="absolute right-4 top-4 z-20 flex h-10 w-10 cursor-pointer items-center justify-center bg-black/80 text-white transition hover:bg-white hover:text-black"
             >
               <span aria-hidden="true" className="text-2xl leading-none">
                 &times;
@@ -147,17 +147,7 @@ export default function BookingButton({
                   </label>
 
                   <label className="grid gap-2 text-sm font-medium text-white/80">
-                    Email
-                    <input
-                      name="email"
-                      type="email"
-                      placeholder="Enter your email"
-                      className="w-full border border-white/10 bg-white px-4 py-2.5 text-sm text-black outline-none transition focus:border-[#C9A96E]"
-                    />
-                  </label>
-
-                  <label className="grid gap-2 text-sm font-medium text-white/80">
-                    Interested In
+                    Concern
                     <select
                       required
                       name="concern"
@@ -183,7 +173,7 @@ export default function BookingButton({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="mt-1 w-full cursor-pointer rounded-tl-[25px] rounded-br-[25px] bg-[#C9A96E] px-6 py-3 text-sm font-bold tracking-[0.14em] text-black transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-70"
+                    className="mt-1 w-full cursor-pointer bg-[#C9A96E] px-6 py-3 text-sm font-bold tracking-[0.14em] text-black transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-70"
                   >
                     {isSubmitting ? "Submitting..." : "Submit Request"}
                   </button>

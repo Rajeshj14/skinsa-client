@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { DM_Serif_Display, Source_Sans_3, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/navbar";
 import ScrollToTop from "@/component/scroll-to-top";
@@ -7,10 +7,22 @@ import Footer from "@/component/footer";
 import MobileActionBar from "@/component/mobile-bar";
 import RevealObserver from "@/component/reveal-observer";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const workSans = Work_Sans({
+  variable: "--font-work-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -18,16 +30,16 @@ export const metadata: Metadata = {
   description: "Premium aesthetic skincare clinic",
   icons: {
     icon: [
-      { url: "logo.svg", sizes: "any" },
-      { url: "logo.svg", sizes: "16x16", type: "image/png" },
-      { url: "logo.svg", sizes: "32x32", type: "image/png" },
+      { url:"/logo-skinsa.jpg", sizes: "any" },
+      { url:"/logo-skinsa.jpg", sizes: "16x16", type: "image/png" },
+      { url:"/logo-skinsa.jpg", sizes: "32x32", type: "image/png" },
     ],
     apple: [
-      { url: "logo.svg", sizes: "180x180", type: "image/png" },
+      { url:"/logo-skinsa.jpg", sizes: "180x180", type: "image/png" },
     ],
     other: [
-      { rel: "icon", url: "logo.svg", sizes: "192x192", type: "image/png" },
-      { rel: "icon", url: "logo.svg", sizes: "512x512", type: "image/png" },
+      { rel: "icon", url:"/logo-skinsa.jpg", sizes: "192x192", type: "image/png" },
+      { rel: "icon", url:"/logo-skinsa.jpg", sizes: "512x512", type: "image/png" },
     ],
   },
 
@@ -39,8 +51,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-outfit)]">
+    <html lang="en" className={`${dmSerif.variable} ${workSans.variable} ${sourceSans.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-work-sans)]">
         <ScrollToTop />
         <RevealObserver />
         {children}

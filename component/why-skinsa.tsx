@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 
 const GOLD = '#C9A96E'
-const BG   = '#0D0D0D'
+const BG   = '#FFFFFF'
 
 const reasons = [
   'Personalised weight management solutions',
@@ -71,7 +71,7 @@ export default function WhySkinsa() {
               Why Us
             </span>
           </div>
-          <h2 className="relative z-10 text-[26px] sm:text-[32px] lg:text-[38px] font-black uppercase leading-[1.15] text-white md:text-[46px]">
+          <h2 className="relative z-10 text-[26px] sm:text-[32px] lg:text-[38px] font-black uppercase leading-[1.15] text-[#0F3F37] md:text-[46px]">
             Why <span style={{ color: GOLD }}>SKINSA?</span>
           </h2>
         </div>
@@ -151,20 +151,18 @@ function ReasonCard({ number, title }: { number: number; title: string }) {
     <div
       className="group flex h-full min-h-[80px]
                  items-center justify-between gap-3 sm:gap-5
-                 rounded-br-[32px] rounded-tl-[32px]
-                 border border-white/15 bg-white/[0.04]
+                 border border-[#0F3F37]/15 bg-[#0F3F37]/[0.04]
                  px-5 sm:px-6 py-4 sm:py-0
                  transition-all duration-300
-                 hover:border-[#C9A96E] hover:bg-white/[0.07]"
+                 hover:border-[#C9A96E] hover:bg-[#0F3F37]/[0.07]"
     >
-      <h3 className="text-[14px] sm:text-[16px] lg:text-[18px] font-bold leading-snug text-white md:text-[20px]">
+      <h3 className="text-[14px] sm:text-[16px] lg:text-[18px] font-bold leading-snug text-[#0F3F37] md:text-[20px]">
         {title}
       </h3>
       <div className="shrink-0">
         <span
           className="flex h-9 w-9 items-center justify-center
-                     rounded-br-[14px] rounded-tl-[14px]
-                     border text-[12px] font-bold tracking-[0.08em] text-white"
+                     border text-[12px] font-bold tracking-[0.08em] text-[#0F3F37]"
           style={{ borderColor: GOLD }}
         >
           {String(number).padStart(2, '0')}

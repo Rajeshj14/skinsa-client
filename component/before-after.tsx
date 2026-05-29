@@ -5,6 +5,7 @@ import Image from 'next/image'
 import BookingButton from './booking-button'
 
 const GOLD = '#C9A96E'
+const BG = '#0F3F37'
 const DIR  = '/Before-after-statics'
 
 const images = [
@@ -21,7 +22,7 @@ const images = [
   // { src: `${DIR}/shraddha ahwale - 2.jpg`,     label: 'Weight Management'  },
   // { src: `${DIR}/somnath ahwale - 1.jpg`,      label: 'Sculpting'          },
   // { src: `${DIR}/somnath ahwale - 2.jpg`,      label: 'Sculpting'          },
-  { src: `${DIR}/anamika.jpg`,                 label: 'Transformation'     },
+  // { src: `${DIR}/anamika.jpg`,                 label: 'Transformation'     },
   // { src: `${DIR}/mangesh zombade.jpg`,          label: 'Transformation'     },
   // { src: `${DIR}/Minimalist Before After Salon & Makeup Instagram Post - 1.png`, label: 'Before & After' },
   { src: `${DIR}/Minimalist Before After Salon & Makeup Instagram Post - 2.png`, label: 'Before & After' },
@@ -66,7 +67,10 @@ export default function BeforeAfter() {
   }, [])
 
   return (
-    <section className="w-full bg-black py-6 sm:py-16 lg:py-10 overflow-hidden">
+    <section
+      className="w-full py-6 sm:py-16 lg:py-10 overflow-hidden"
+      // style={{ backgroundColor: BG }}
+    >
 
       {/* ── Section Header ── */}
       <div className="mx-auto max-w-7xl px-6">
@@ -80,11 +84,11 @@ export default function BeforeAfter() {
             <span className="h-[1px] w-10 lg:w-16" style={{ backgroundColor: GOLD }} />
           </div>
 
-          <h2 className="text-[26px] sm:text-[34px] lg:text-[40px] font-black text-white uppercase tracking-[0.03em] leading-tight mb-1">
+          <h2 className="text-[26px] sm:text-[34px] lg:text-[40px] font-black text-[#0F3F37] uppercase tracking-[0.03em] leading-tight mb-1">
             Before & <span style={{ color: GOLD }}>After</span>
           </h2>
 
-          <p className="text-[12.5px] sm:text-[14px] text-white/45 tracking-wide max-w-[440px]">
+          <p className="text-[12.5px] sm:text-[14px] text-black/75 tracking-wide max-w-[440px]">
             Real client transformations achieved through our personalised non-surgical programs.
           </p>
 
@@ -97,12 +101,12 @@ export default function BeforeAfter() {
         {/* Left fade */}
         <div
           className="absolute left-0 top-0 bottom-0 w-10 sm:w-16 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to right, black, transparent)' }}
+          style={{ background: `linear-gradient(to right, ${BG}, transparent)` }}
         />
         {/* Right fade */}
         <div
           className="absolute right-0 top-0 bottom-0 w-10 sm:w-16 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to left, black, transparent)' }}
+          style={{ background: `linear-gradient(to left, ${BG}, transparent)` }}
         />
 
         {/* Scroll track */}
@@ -114,7 +118,7 @@ export default function BeforeAfter() {
           {[...images, ...images].map((img, idx) => (
             <div
               key={idx}
-              className="relative shrink-0 w-[314px] sm:w-[260px] lg:w-[700px] h-[262px] sm:h-[420px] lg:h-[460px] overflow-hidden group"
+              className="relative shrink-0 w-[314px] sm:w-[260px] lg:w-[450px] h-[262px] sm:h-[420px] lg:h-[400px] overflow-hidden group"
               style={{
                 borderRadius: '32px 0 32px 0',
                 border: '1px solid rgba(201,169,110,0.18)',
@@ -151,14 +155,14 @@ export default function BeforeAfter() {
       </div>
 
       {/* Disclaimer */}
-      <p data-reveal="bottom" data-delay="260" className="text-center text-[15.5px] text-white/80 mt-8 px-6 tracking-wide">
+      <p data-reveal="bottom" data-delay="260" className="text-center text-[15.5px] text-black/80 mt-8 px-6 tracking-wide">
         Individual results may vary. All treatments performed under professional supervision.
       </p>
               {/* ── CTA Button ── */}
               <div data-reveal="bottom" data-delay="340" className="flex justify-center mt-4">
                 <BookingButton
                   ariaLabel="Book free consultation"
-                  className="inline-flex items-center gap-2.5 sm:gap-3 rounded-tl-[25px] rounded-br-[25px] border px-8 sm:px-10 py-3 sm:py-3.5 text-[12px] sm:text-[13.5px] font-semibold tracking-[0.12em] uppercase transition-all duration-200 hover:bg-white hover:border-white hover:text-black active:scale-95"
+                  className="inline-flex items-center gap-2.5 sm:gap-3 border px-8 sm:px-10 py-3 sm:py-3.5 text-[12px] sm:text-[13.5px] font-semibold tracking-[0.12em] uppercase transition-all duration-200 hover:bg-white hover:border-white hover:text-black active:scale-95"
                   style={{
                     borderColor: GOLD,
                     color: GOLD,
@@ -173,7 +177,7 @@ export default function BeforeAfter() {
                     <rect x="3" y="4" width="18" height="18" rx="2" />
                     <path d="M16 2v4M8 2v4M3 10h18" />
                   </svg>
-                  Book Free Consultation
+                  Book Your Consultation
                 </BookingButton>
               </div>
 

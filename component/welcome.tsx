@@ -2,6 +2,7 @@ import Image from 'next/image'
 import BookingButton from '@/component/booking-button'
 
 const GOLD = '#C9A96E'
+const BG = '#0F3F37'
 
 const stats = [
   { value: '98%', label: 'Client Satisfactory Rate' },
@@ -11,7 +12,11 @@ const stats = [
 
 export default function Welcome() {
   return (
-    <section id="services" className="w-full scroll-mt-28 bg-black overflow-hidden">
+    <section
+      id="services"
+      className="w-full scroll-mt-28 overflow-hidden"
+      style={{ backgroundColor: BG }}
+    >
 
       {/* ══════════════════════════════
           TOP — Layout
@@ -106,7 +111,7 @@ export default function Welcome() {
           <p
             data-reveal="right"
             data-delay="200"
-            className="text-[13px] sm:text-[14px] text-white/55 leading-relaxed
+            className="text-[13px] sm:text-[14px] text-white/60 leading-relaxed
                        mb-6 lg:mb-8 max-w-[460px]
                        lg:col-start-2 lg:row-start-3"
           >
@@ -121,8 +126,7 @@ export default function Welcome() {
             <div data-reveal="bottom" data-delay="300">
             <BookingButton
               ariaLabel="Open consultation form"
-              className="inline-flex items-center gap-3 px-8 sm:px-10 py-3 sm:py-3.5 text-[11.5px] rounded-tl-[25px] rounded-br-[25px] sm:text-[12.5px] font-bold tracking-[0.2em] uppercase transition-all duration-200"
-              style={{ backgroundColor: GOLD, color: '#000' }}
+              className="inline-flex items-center gap-3 px-8 sm:px-10 py-3 sm:py-3.5 text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.2em] uppercase transition-all duration-200 bg-white text-black hover:bg-[#C9A96E]"
             >
               Yes, I&apos;m Ready!
             </BookingButton>
@@ -153,7 +157,7 @@ export default function Welcome() {
                   +
                 </span>
               </div>
-              <span className="text-[10px] sm:text-[12px] lg:text-[13.5px] text-white/45 tracking-wide leading-snug">
+              <span className="text-[10px] sm:text-[12px] lg:text-[13.5px] text-white/55 tracking-wide leading-snug">
                 {s.label}
               </span>
             </div>

@@ -120,7 +120,7 @@ export default function PrivacyPolicyPage() {
           href="/"
           data-reveal="bottom"
           data-delay="320"
-          className="mt-8 inline-flex cursor-pointer rounded-tl-[25px] rounded-br-[25px] bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-white active:scale-95"
+          className="mt-8 inline-flex cursor-pointer bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-white active:scale-95"
         >
           Back to Home
         </Link>

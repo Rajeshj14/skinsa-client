@@ -168,7 +168,7 @@ export default function Hero() {
         <div data-reveal="bottom" data-delay="400">
         <BookingButton
           ariaLabel="Book your consultation"
-          className="inline-flex items-center self-start gap-3 px-8 sm:px-9 py-3.5 text-[11.5px] sm:text-[12px] font-bold tracking-[0.18em] uppercase transition-all duration-200 rounded-tl-[25px] rounded-br-[25px]"
+          className="inline-flex items-center self-start gap-3 px-8 sm:px-9 py-3.5 text-[11.5px] sm:text-[12px] font-bold tracking-[0.18em] uppercase transition-all duration-200"
           style={{
             backgroundColor: GOLD,
             color: '#000',

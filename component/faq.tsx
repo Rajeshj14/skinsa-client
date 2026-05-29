@@ -5,7 +5,7 @@ import Image from 'next/image'
 import BookingButton from '@/component/booking-button'
 
 const GOLD = '#C9A96E'
-const BG = 'black'
+const BG = '#0F3F37'
 
 const faqs = [
   {
@@ -94,7 +94,7 @@ export default function FAQ() {
             {/* Top image — large, right-anchored */}
             <div className="absolute right-0 top-0 w-[80%] h-[90%] rounded-xl lg:rounded-2xl overflow-hidden">
               <Image
-                src="/faq-img-1.png"
+                src="/faq-imgs.png"
                 alt="Skinsa Aesthetic Treatment"
                 fill
                 className="object-cover"
@@ -107,7 +107,7 @@ export default function FAQ() {
               style={{ border: `4px solid ${BG}` }}
             >
               <Image
-                src="/faq-img-2.png"
+                src="/faq-imgs2.png"
                 alt="Skinsa Aesthetic Clinic"
                 fill
                 className="object-cover"
@@ -136,15 +136,18 @@ export default function FAQ() {
             {faqs.map((faq, i) => {
               const isOpen = open === i
               return (
-                <div key={i} data-reveal="bottom" data-delay={String(i * 80)} className="overflow-hidden" style={{ borderRadius: '4px' }}>
+                <div key={i} data-reveal="bottom" data-delay={String(i * 80)} className="overflow-hidden">
 
                   {/* Question row */}
                   <button
                     onClick={() => setOpen(isOpen ? -1 : i)}
-                    className="w-full cursor-pointer flex items-center justify-between px-4 sm:px-5 py-[12px] sm:py-[14px] text-left text-[11px] sm:text-[12px] font-bold tracking-[0.09em] uppercase text-white transition-colors duration-200 hover:bg-white hover:text-black"
+                    className={`w-full cursor-pointer flex items-center justify-between px-4 sm:px-5 py-[12px] sm:py-[14px] text-left text-[11px] sm:text-[12px] font-bold tracking-[0.09em] uppercase transition-colors duration-200 ${
+                      isOpen
+                        ? 'bg-[#C9A96E] text-black'
+                        : 'bg-[#0F3F37] text-white hover:bg-[#C9A96E] hover:text-black'
+                    }`}
                     style={{
-                      backgroundColor: isOpen ? GOLD : undefined,
-                      border:          isOpen ? 'none' : '1px solid rgba(255,255,255,0.2)',
+                      border: isOpen ? 'none' : '1px solid rgba(255,255,255,0.2)',
                     }}
                   >
                     <span className="leading-snug">{faq.q}</span>
@@ -169,7 +172,7 @@ export default function FAQ() {
 
                   {/* Answer panel */}
                   {isOpen && faq.a && (
-                    <div className="px-4 sm:px-5 py-3 sm:py-4 bg-white text-gray-600 text-[13px] sm:text-[14px] leading-relaxed">
+                    <div className="px-4 sm:px-5 py-3 sm:py-4 bg-white text-gray-600 text-[13px] sm:text-[14px] leading-relaxed text-black">
                       {faq.a}
                     </div>
                   )}
@@ -185,11 +188,11 @@ export default function FAQ() {
         <div data-reveal="bottom" data-delay="300" className="flex justify-center mt-5 sm:mt-12 lg:mt-14">
           <BookingButton
             ariaLabel="Book your consultation"
-            className="inline-flex items-center gap-3 px-9 sm:px-12 py-3.5 text-[12px] sm:text-[13px] font-bold tracking-[0.18em] uppercase transition-all duration-200"
+            className="inline-flex items-center gap-3 border px-9 sm:px-12 py-3.5 text-[12px] sm:text-[13px] font-bold tracking-[0.18em] uppercase transition-all duration-200 active:scale-95"
             style={{
-              backgroundColor: GOLD,
-              color: '#000',
-              borderRadius: '25px 0 25px 0',
+              backgroundColor: '#ffffff',
+              borderColor: '#ffffff',
+              color: '#000000',
             }}
           >
             <svg
