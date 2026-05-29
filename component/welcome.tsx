@@ -25,6 +25,7 @@ export default function Welcome() {
       ══════════════════════════════ */}
       <div className="mx-auto max-w-7xl px-6 pt-12 sm:pt-16 lg:pt-24 pb-6 lg:pb-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-16 lg:items-center">
+            <span className="h-[2px] w-10 shrink-0" style={{ backgroundColor: GOLD }} />
 
           {/* ① Label — mobile: 1st  |  desktop: col-2 row-1 */}
           <p
@@ -34,6 +35,7 @@ export default function Welcome() {
                        lg:col-start-2 lg:row-start-1"
             style={{ color: GOLD }}
           >
+
             Why Choose SKINSA
           </p>
 

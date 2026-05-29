@@ -14,10 +14,10 @@ const images = [
   // { src: `${DIR}/KRUPA FATLOSS PPT - 3.jpg`,   label: 'Fat Loss'           },
   // { src: `${DIR}/RAMESH DHANEKUL - 1.jpg`,     label: 'Body Transformation' },
   { src: `${DIR}/RAMESH DHANEKUL - 2.jpg`,     label: '' },
-  { src: `${DIR}/pradnya khaldkar - 1.png`,    label: ''    },
-  { src: `${DIR}/pradnya khaldkar - 2.png`,    label: ''    },
+  { src: `${DIR}/bfaf-img-1.png`,    label: ''    },
+  { src: `${DIR}/bfaf-img-2.png`,    label: ''    },
   // { src: `${DIR}/priyanka kalamkar - 1.jpg`,   label: 'Inch Loss'          },
-  { src: `${DIR}/priyanka kalamkar - 2.jpg`,   label: ''          },
+  { src: `${DIR}/bfaf-img-3.png`,   label: ''          },
   // { src: `${DIR}/shraddha ahwale - 1.jpg`,     label: 'Weight Management'  },
   // { src: `${DIR}/shraddha ahwale - 2.jpg`,     label: 'Weight Management'  },
   // { src: `${DIR}/somnath ahwale - 1.jpg`,      label: 'Sculpting'          },
@@ -120,6 +120,7 @@ export default function BeforeAfter() {
               key={idx}
               className="relative shrink-0 w-[314px] sm:w-[260px] lg:w-[450px] h-[262px] sm:h-[420px] lg:h-[400px] overflow-hidden group"
               style={{
+                borderRadius: '10px',
                 border: '1px solid rgba(201,169,110,0.18)',
                 backgroundColor: '#111',
               }}
@@ -136,17 +137,6 @@ export default function BeforeAfter() {
                 className="absolute inset-x-0 bottom-0 h-20"
                 style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75), transparent)' }}
               />
-
-              {/* Label */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                <span className="text-[11px] sm:text-[12px] font-bold text-white tracking-wide">
-                  {img.label}
-                </span>
-                <span
-                  className="w-2 h-2 rounded-full shrink-0"
-                  style={{ backgroundColor: GOLD }}
-                />
-              </div>
 
             </div>
           ))}

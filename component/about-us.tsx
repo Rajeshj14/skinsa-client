@@ -116,6 +116,7 @@ export default function AboutUs() {
               className="absolute bottom-6 left-[64%] -translate-x-1/2 z-10
                           flex flex-col items-center justify-center text-center px-4 py-3"
               style={{
+                borderRadius: '20px 0px 20px 0px',
                 backgroundColor: GOLD,
                 minWidth: '90px',
               }}
@@ -181,9 +182,9 @@ export default function AboutUs() {
             </BookingButton>
             <BookingButton
               ariaLabel="More about Skinsa"
-              className="w-11 h-11 lg:w-12 lg:h-12 cursor-pointer flex items-center justify-center border border-[#C9A96E]/40 bg-[#C9A96E]/10 transition-all duration-200 hover:bg-white active:scale-95"
+              className="group w-11 h-11 lg:w-12 lg:h-12 cursor-pointer flex items-center justify-center border border-[#C9A96E]/40 bg-[#C9A96E]/10 transition-all duration-200 hover:bg-[#C9A96E] active:scale-95"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="transition-colors duration-200 group-hover:stroke-black" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7" /><path d="M7 7h10v10" />
               </svg>
             </BookingButton>

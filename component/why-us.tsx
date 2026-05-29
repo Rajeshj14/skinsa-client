@@ -41,6 +41,7 @@ function FeatureCard({ f, i }: { f: typeof features[0]; i: number }) {
       style={{
         '--why-delay': `${i * 90}ms`,
         backgroundColor: 'rgba(255,255,255,0.05)',
+        borderRadius: '10px 10px 10px 10px',
         border: '1px solid rgba(255,255,255,0.1)',
       } as React.CSSProperties}
     >
@@ -182,7 +183,7 @@ export default function WhyUs() {
               className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em]"
               style={{ color: LIME }}
             >
-              Why Choose Us
+             Our Treatments
             </span>
           </div>
 

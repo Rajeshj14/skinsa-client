@@ -42,7 +42,7 @@ export default function Offers() {
               key={offer.tag}
               data-reveal={offer.tag === '01' ? 'left' : 'right'}
               data-delay={String(Number(offer.tag) * 120)}
-              className="relative overflow-hidden h-[280px] sm:h-[400px] md:h-[540px]"
+              className="relative overflow-hidden h-[280px] sm:h-[400px] md:h-[540px]" style={{ borderRadius: '10px' }}
             >
               <Image
                 src={offer.img}

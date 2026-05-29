@@ -329,6 +329,8 @@ export default function JewelryHero() {
         .jw-marquee {
           margin-bottom:18px;
           margin-top:22px;
+          display: flex;
+          align-items: center;
           overflow: hidden;
           background: #0F3F37;
           color: #C9A96E;
@@ -344,6 +346,7 @@ export default function JewelryHero() {
         }
         .jw-marquee-track {
           display: flex;
+          align-items: center;
           width: max-content;
           animation: jwMarquee 26s linear infinite;
         }
@@ -351,8 +354,8 @@ export default function JewelryHero() {
           display: inline-flex;
           align-items: center;
           gap: 18px;
-          padding: 10px 26px 12px;
-          font-size: clamp(22px, 2.4vw, 36px);
+          padding: 10px 8px 12px;
+          font-size: clamp(22px, 1.6vw, 25px);
           font-weight: 700;
           line-height: 1;
           letter-spacing: 0.04em;
@@ -360,11 +363,15 @@ export default function JewelryHero() {
           text-transform: uppercase;
         }
         .jw-marquee span::after {
-          content: '';
-          width: 7px; height: 7px;
-          border: 1px solid #C9A96E;
-          background: rgba(201,169,110,0.22);
-          transform: rotate(45deg);
+          content: '\\2726';
+          width: auto;
+          height: auto;
+          border: 0;
+          background: transparent;
+          color: #C9A96E;
+          font-size: 0.82em;
+          line-height: 1;
+          transform: none;
           flex-shrink: 0;
         }
         @keyframes jwMarquee {
@@ -436,7 +443,7 @@ export default function JewelryHero() {
             margin: 20px auto 0 !important;
           }
 
-          .jw-marquee span { gap: 14px; padding: 8px 18px 9px; font-size: 20px; }
+          .jw-marquee span { gap: 14px; padding: 8px 8px 9px; font-size: 20px; }
         }
       `}</style>
 
@@ -589,8 +596,8 @@ export default function JewelryHero() {
         <div className="jw-marquee" aria-hidden="true">
           <div className="jw-marquee-track">
             {[
-              ...["COOLSCULPTING", "LIPODISSOLVE", "INCH LOSS", "BODY CONTOURING", "WEIGHT LOSS", "WELLNESS"],
-              ...["COOLSCULPTING", "LIPODISSOLVE", "INCH LOSS", "BODY CONTOURING", "WEIGHT LOSS", "WELLNESS"],
+              ...["Advanced Aesthetic Technology", "Expert-Guided Programs", "Customised Body Sculpting Solutions",],
+              ...["Advanced Aesthetic Technology", "Expert-Guided Programs", "Customised Body Sculpting Solutions",],
             ].map((item, index) => (
               <span key={`${item}-${index}`}>{item}</span>
             ))}
