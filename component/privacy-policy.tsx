@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const GOLD = "#C9A96E";
+const GREEN = "#0F3F37";
 
 const policySections = [
   {
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-[#070707] text-white">
+    <main style={{ backgroundColor: GREEN }} className="text-white">
       <section className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
         <p
           data-reveal="top"
@@ -82,7 +83,7 @@ export default function PrivacyPolicyPage() {
               key={section.title}
               data-reveal={index % 2 === 0 ? "left" : "right"}
               data-delay={String(index * 90)}
-              className="border border-white/10 bg-white/[0.03] p-5 sm:p-6"
+              className="border border-[#C9A96E]/25 bg-white/[0.06] p-5 sm:p-6"
             >
               <h2 className="text-xl font-semibold" style={{ color: GOLD }}>
                 {section.title}
@@ -98,7 +99,7 @@ export default function PrivacyPolicyPage() {
           ))}
         </div>
 
-        <div data-reveal="bottom" data-delay="240" className="mt-8 border border-white/10 bg-black p-5 sm:p-6">
+        <div data-reveal="bottom" data-delay="240" className="mt-8 border border-[#C9A96E]/25 bg-white/[0.08] p-5 sm:p-6">
           <h2 className="text-xl font-semibold" style={{ color: GOLD }}>
             Contact Us
           </h2>

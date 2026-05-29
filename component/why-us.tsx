@@ -196,12 +196,12 @@ export default function WhyUs() {
         </div>
 
         {/* ── Mobile / Tablet: Carousel (hidden on lg+) ── */}
-        <div className="why-anim lg:hidden" style={{ '--why-delay': '160ms' } as React.CSSProperties}>
+        <div className="why-anim lg:hidden" style={{ '--why-delay': '160ms',borderRadius: '20px 20px 20px 20px', } as React.CSSProperties}>
           <div
             ref={trackRef}
             onScroll={handleScroll}
             className="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-1"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' ,}}
           >
             {features.map((f, i) => (
               <div
@@ -232,7 +232,7 @@ export default function WhyUs() {
         </div>
 
         {/* ── Desktop: 4-column grid (hidden below lg) — NEVER TOUCH ── */}
-        <div className="hidden lg:grid grid-cols-4 gap-5">
+        <div className="hidden lg:grid grid-cols-4 gap-5 " >
           {features.map((f, i) => (
             <FeatureCard key={i} f={f} i={i} />
           ))}

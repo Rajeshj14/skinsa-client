@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const GOLD = "#C9A96E";
+const GREEN = "#0F3F37";
 
 const nextSteps = [
   {
@@ -22,7 +23,7 @@ const nextSteps = [
 
 export default function ThankYouPage() {
   return (
-    <main className="bg-[#070707] text-white">
+    <main style={{ backgroundColor: GREEN }} className="text-white">
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-16 xl:px-10">
         <div data-reveal="left">
           <p
@@ -49,20 +50,20 @@ export default function ThankYouPage() {
             </Link>
             <Link
               href="tel:+918007070530"
-              className="inline-flex cursor-pointer justify-center border border-white/20 px-6 py-2.5 text-sm font-semibold tracking-wide text-white transition-all duration-200 hover:border-white hover:bg-white hover:text-black active:scale-95"
+              className="inline-flex cursor-pointer justify-center border border-[#C9A96E]/70 px-6 py-2.5 text-sm font-semibold tracking-wide text-white transition-all duration-200 hover:border-[#C9A96E] hover:bg-[#C9A96E] hover:text-black active:scale-95"
             >
               Call +91 8007070530
             </Link>
           </div>
         </div>
 
-        <div data-reveal="right" data-delay="150" className="border border-white/10 bg-white/[0.03] p-5 sm:p-6 lg:p-8">
+        <div data-reveal="right" data-delay="150" className="border border-[#C9A96E]/30 bg-white/[0.06] p-5 sm:p-6 lg:p-8">
           <h2 className="text-2xl font-semibold" style={{ color: GOLD }}>
             What Happens Next?
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-4">
             {nextSteps.map((step, index) => (
-              <article key={step.title} data-reveal="bottom" data-delay={String(index * 120)} className="border border-white/10 bg-black p-4">
+              <article key={step.title} data-reveal="bottom" data-delay={String(index * 120)} className="border border-[#C9A96E]/20 bg-white/[0.08] p-4">
                 <div className="flex items-start gap-4">
                   <span
                     className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-black"

@@ -69,6 +69,7 @@ export default function AboutUs() {
             <div
               className="absolute bottom-0 left-0 w-[62%] h-[75%] lg:h-[420px] overflow-hidden"
               style={{
+                borderRadius: '20px 20px 20px 20px',
                 border: `1.5px solid rgba(201,169,110,0.3)`,
                 zIndex: 1,
               }}
@@ -81,6 +82,7 @@ export default function AboutUs() {
             <div
               className="absolute top-0 right-0 w-[48%] h-[44%] lg:h-[240px] overflow-hidden"
               style={{
+                borderRadius: '20px 20px 20px 20px',
                 border: `2.5px solid rgba(237,163,25,0.25)`,
                 zIndex: 2,
               }}

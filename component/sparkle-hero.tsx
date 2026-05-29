@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { label: "Home", href: "/#home" },
@@ -12,10 +13,70 @@ const navLinks = [
 ];
 
 export default function JewelryHero() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setLoaded(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
+
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=EB+Garamond:wght@400;500&display=swap');
+
+        /* ── KEYFRAMES ── */
+        @keyframes heroFromTop {
+          from { opacity: 0; transform: translateY(-32px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heroFromLeft {
+          from { opacity: 0; transform: translateX(-52px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes heroFromRight {
+          from { opacity: 0; transform: translateX(52px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes heroFromBottom {
+          from { opacity: 0; transform: translateY(52px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heroFade {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+
+        /* Initial hidden state for all animated elements */
+        .jw-nav,
+        .jw-badge,
+        .jw-title,
+        .jw-left,
+        .jw-center,
+        .jw-right,
+        .jw-marquee,
+        .jw-mobile-top {
+          opacity: 0;
+        }
+
+        /* One-by-one stagger: each element starts after the previous finishes */
+        .hero-loaded .jw-nav        { animation: heroFromTop    0.75s cubic-bezier(0.22,1,0.36,1) 0.1s  forwards; }
+        .hero-loaded .jw-mobile-top { animation: heroFromTop    0.75s cubic-bezier(0.22,1,0.36,1) 0.1s  forwards; }
+        .hero-loaded .jw-badge      { animation: heroFromTop    0.75s cubic-bezier(0.22,1,0.36,1) 0.7s  forwards; }
+        .hero-loaded .jw-title      { animation: heroFromTop    0.75s cubic-bezier(0.22,1,0.36,1) 1.3s  forwards; }
+        .hero-loaded .jw-left       { animation: heroFromLeft   0.85s cubic-bezier(0.22,1,0.36,1) 1.95s forwards; }
+        .hero-loaded .jw-center     { animation: heroFromBottom 0.85s cubic-bezier(0.22,1,0.36,1) 1.95s forwards; }
+        .hero-loaded .jw-right      { animation: heroFromRight  0.85s cubic-bezier(0.22,1,0.36,1) 2.65s forwards; }
+        .hero-loaded .jw-marquee    { animation: heroFade       0.75s ease             3.3s  forwards; }
+
+        @media (prefers-reduced-motion: reduce) {
+          .jw-nav, .jw-badge, .jw-title, .jw-left, .jw-center,
+          .jw-right, .jw-marquee, .jw-mobile-top {
+            opacity: 1 !important;
+            animation: none !important;
+          }
+        }
 
         .jw {
           position: relative;
@@ -44,7 +105,7 @@ export default function JewelryHero() {
             rgba(15,63,55,0.42);
         }
 
-        /* ── NAV ── */
+        /* ── DESKTOP / TABLET NAV ── */
         .jw-nav {
           display: flex;
           justify-content: center;
@@ -61,30 +122,76 @@ export default function JewelryHero() {
           text-transform: uppercase;
           cursor: pointer;
           white-space: nowrap;
-          transition: opacity 0.2s;
+          transition: color 0.2s;
         }
-        .jw-nav a:hover, .jw-nav-pages:hover { color: #C9A96E; opacity: 1; }
-        .pages-rel { position: relative; }
-        .pages-drop {
-          position: absolute;
-          top: 24px; left: 0;
-          background: #ffffff;
-          border: 1px solid rgba(15,63,55,0.18);
-          padding: 5px 0;
-          min-width: 120px;
-          z-index: 99;
+        .jw-nav a:hover { color: #C9A96E; }
+
+        /* ── MOBILE TOP BAR (logo + hamburger) ── */
+        .jw-mobile-top {
+          display: none; /* shown only on mobile via media query */
+          align-items: center;
+          justify-content: space-between;
+          padding: 12px 18px 8px;
         }
-        .pages-drop span {
-          display: block;
-          padding: 7px 14px;
-          font-size: 11.5px;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          color: #0F3F37;
+
+        /* ── HAMBURGER BUTTON ── */
+        .jw-toggle {
+          background: none;
+          border: 1px solid rgba(201,169,110,0.55);
+          padding: 8px 10px;
           cursor: pointer;
-          text-transform: uppercase;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
         }
-        .pages-drop span:hover { color: #C9A96E; opacity: 1; }
+        .jw-toggle span {
+          display: block;
+          width: 20px;
+          height: 2px;
+          background: #C9A96E;
+          border-radius: 1px;
+          transition: transform 0.25s, opacity 0.25s;
+        }
+        .jw-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .jw-toggle.open span:nth-child(2) { opacity: 0; width: 0; }
+        .jw-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ── MOBILE DROPDOWN MENU ── */
+        .jw-mobile-menu {
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          background: rgba(10,46,40,0.98);
+          border-bottom: 1px solid rgba(201,169,110,0.3);
+          padding: 12px 18px 18px;
+          z-index: 200;
+          backdrop-filter: blur(12px);
+        }
+        .jw-mobile-menu-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 14px;
+        }
+        .jw-mobile-menu nav {
+          display: flex;
+          flex-direction: column;
+        }
+        .jw-mobile-menu nav a {
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.14em;
+          color: rgba(255,255,255,0.85);
+          text-decoration: none;
+          text-transform: uppercase;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          transition: color 0.2s;
+        }
+        .jw-mobile-menu nav a:last-child { border-bottom: none; }
+        .jw-mobile-menu nav a:hover { color: #C9A96E; }
 
         /* ── LOGO BADGE ── */
         .jw-badge {
@@ -125,7 +232,6 @@ export default function JewelryHero() {
           margin: 0 auto;
         }
 
-        /* LEFT — top aligned, stats from the top */
         .jw-left {
           display: flex;
           flex-direction: column;
@@ -161,7 +267,6 @@ export default function JewelryHero() {
           padding-left: 24px;
         }
 
-        /* CENTER */
         .jw-center { display: flex; justify-content: center; }
         .big-img {
           width: 330px;
@@ -175,25 +280,13 @@ export default function JewelryHero() {
           width: 100%;
           height: 100%;
           background: linear-gradient(168deg, #0F3F37 0%, #1f6b5d 46%, #C9A96E 100%);
-          display: flex;
-          align-items: center;
-          justify-content: center;
         }
         .big-img-inner img {
           width: 100%; height: 100%;
           object-fit: cover; object-position: center top;
           display: block;
         }
-        .img-lbl {
-          position: absolute;
-          color: rgba(255,255,255,0.16);
-          font-size: 9px;
-          letter-spacing: 0.28em;
-          text-transform: uppercase;
-          user-select: none;
-        }
 
-        /* RIGHT — flex col, sparkle+quote top, small image margin-top:auto to bottom */
         .jw-right {
           display: flex;
           flex-direction: column;
@@ -213,7 +306,6 @@ export default function JewelryHero() {
           line-height: 1.8;
           max-width: 290px;
         }
-        /* small image pushed to bottom-right with margin-top auto */
         .small-img {
           width: 162px;
           height: 222px;
@@ -226,24 +318,14 @@ export default function JewelryHero() {
         .small-img-inner {
           width: 100%; height: 100%;
           background: linear-gradient(158deg, #0F3F37 0%, #1f6b5d 52%, #C9A96E 100%);
-          display: flex;
-          align-items: center;
-          justify-content: center;
         }
         .small-img-inner img {
           width: 100%; height: 100%;
           object-fit: cover; object-position: center top;
           display: block;
         }
-        .small-lbl {
-          position: absolute;
-          color: rgba(255,255,255,0.16);
-          font-size: 8px;
-          letter-spacing: 0.25em;
-          text-transform: uppercase;
-          user-select: none;
-        }
 
+        /* ── MARQUEE ── */
         .jw-marquee {
           margin-bottom:18px;
           margin-top:22px;
@@ -254,28 +336,10 @@ export default function JewelryHero() {
           border-bottom: 1px solid rgba(201,169,110,0.55);
           box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(255,255,255,0.08);
           clip-path: polygon(
-            0 8%,
-            10% 0,
-            20% 8%,
-            30% 0,
-            40% 8%,
-            50% 0,
-            60% 8%,
-            70% 0,
-            80% 8%,
-            90% 0,
-            100% 8%,
-            100% 92%,
-            90% 100%,
-            80% 92%,
-            70% 100%,
-            60% 92%,
-            50% 100%,
-            40% 92%,
-            30% 100%,
-            20% 92%,
-            10% 100%,
-            0 92%
+            0 8%, 10% 0, 20% 8%, 30% 0, 40% 8%, 50% 0,
+            60% 8%, 70% 0, 80% 8%, 90% 0, 100% 8%,
+            100% 92%, 90% 100%, 80% 92%, 70% 100%, 60% 92%,
+            50% 100%, 40% 92%, 30% 100%, 20% 92%, 10% 100%, 0 92%
           );
         }
         .jw-marquee-track {
@@ -297,8 +361,7 @@ export default function JewelryHero() {
         }
         .jw-marquee span::after {
           content: '';
-          width: 7px;
-          height: 7px;
+          width: 7px; height: 7px;
           border: 1px solid #C9A96E;
           background: rgba(201,169,110,0.22);
           transform: rotate(45deg);
@@ -306,126 +369,49 @@ export default function JewelryHero() {
         }
         @keyframes jwMarquee {
           from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
+          to   { transform: translateX(-50%); }
         }
 
+        /* ── TABLET ── */
         @media (max-width: 1024px) {
-          .jw {
-            min-height: auto;
-            padding-bottom: 18px;
-            background-position: center top;
-          }
-          .jw-nav {
-            flex-wrap: wrap;
-            gap: 14px 22px;
-            padding: 16px 24px 10px;
-          }
-          .jw-nav a {
-            font-size: 11px;
-            letter-spacing: 0.12em;
-          }
-          .jw-logo {
-            width: 190px;
-            height: 62px;
-          }
-          .jw-title {
-            font-size: clamp(42px, 8vw, 72px);
-            white-space: normal;
-            padding: 10px 20px 28px;
-          }
-          .jw-grid {
-            grid-template-columns: minmax(0, 1fr) 280px;
-            column-gap: 30px;
-            row-gap: 28px;
-            padding: 0 28px;
-          }
-          .jw-left {
-            align-items: flex-start;
-            padding-top: 0;
-          }
-          .stat-block {
-            margin-bottom: 28px;
-          }
-          .stat-desc {
-            max-width: 100%;
-          }
-          .big-img {
-            width: 280px;
-            height: 365px;
-            border-radius: 0 128px 0 0;
-          }
-          .jw-right {
-            grid-column: 1 / -1;
-            height: auto;
-            padding-top: 0;
-          }
-          .jw-quote {
-            max-width: 620px;
-          }
-          .small-img {
-            width: 138px;
-            height: 190px;
-            border-radius: 70px 0 0 0;
-          }
-          .jw-marquee {
-            margin-top: 18px;
-            margin-bottom: 12px;
-          }
-          .jw-marquee span {
-            padding: 9px 22px 10px;
-            font-size: clamp(20px, 3.8vw, 32px);
-          }
+          .jw { min-height: auto; padding-bottom: 18px; background-position: center top; }
+          .jw-nav { flex-wrap: wrap; gap: 14px 22px; padding: 16px 24px 10px; }
+          .jw-nav a { font-size: 11px; letter-spacing: 0.12em; }
+          .jw-logo { width: 190px; height: 62px; }
+          .jw-title { font-size: clamp(42px, 8vw, 72px); white-space: normal; padding: 10px 20px 28px; }
+          .jw-grid { grid-template-columns: minmax(0,1fr) 280px; column-gap: 30px; row-gap: 28px; padding: 0 28px; }
+          .jw-left { align-items: flex-start; padding-top: 0; }
+          .stat-block { margin-bottom: 28px; }
+          .stat-desc { max-width: 100%; }
+          .big-img { width: 280px; height: 365px; border-radius: 0 128px 0 0; }
+          .jw-right { grid-column: 1 / -1; height: auto; padding-top: 0; }
+          .jw-quote { max-width: 620px; }
+          .small-img { width: 138px; height: 190px; border-radius: 70px 0 0 0; }
+          .jw-marquee { margin-top: 18px; margin-bottom: 12px; }
+          .jw-marquee span { padding: 9px 22px 10px; font-size: clamp(20px, 3.8vw, 32px); }
         }
 
+        /* ── MOBILE ── */
         @media (max-width: 640px) {
-          .jw {
-            background-position: center top;
-          }
+          .jw { background-position: center top; }
           .jw::after {
             background:
               linear-gradient(180deg, rgba(15,63,55,0.94) 0%, rgba(15,63,55,0.82) 54%, rgba(15,63,55,0.72) 100%),
               rgba(15,63,55,0.48);
           }
-          .jw-nav {
-            gap: 10px 14px;
-            padding: 14px 14px 8px;
-          }
-          .jw-nav a {
-            font-size: 10px;
-            letter-spacing: 0.08em;
-          }
-          .jw-badge {
-            margin: 6px auto 8px;
-          }
-          .jw-logo {
-            width: 160px;
-            height: 52px;
-          }
-          .jw-title {
-            font-size: clamp(34px, 12vw, 48px);
-            line-height: 1;
-            padding: 8px 16px 22px;
-          }
-          .jw-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            padding: 0 18px;
-          }
-          .jw-center {
-            order: 1;
-            width: 100%;
-          }
-          .jw-left {
-            order: 2;
-            width: 100%;
-            gap: 14px;
-          }
-          .jw-right {
-            order: 3;
-            width: 100%;
-            align-items: flex-start;
-          }
+
+          /* Hide desktop nav & standalone badge; show mobile top bar */
+          .jw-nav   { display: none !important; }
+          .jw-badge { display: none !important; }
+          .jw-mobile-top { display: flex; }
+
+          .jw-title { font-size: clamp(34px, 12vw, 48px); line-height: 1; padding: 8px 16px 22px; }
+
+          .jw-grid { display: flex; flex-direction: column; gap: 24px; padding: 0 18px; }
+          .jw-center { order: 1; width: 100%; }
+          .jw-left   { order: 2; width: 100%; gap: 14px; }
+          .jw-right  { order: 3; width: 100%; align-items: center; height: auto; padding-top: 0; }
+
           .stat-block {
             width: 100%;
             margin-bottom: 0;
@@ -433,46 +419,75 @@ export default function JewelryHero() {
             background: rgba(15,63,55,0.32);
             padding: 16px;
           }
-          .stat-row {
-            margin-bottom: 10px;
-          }
-          .stat-label {
-            font-size: 22px;
-          }
-          .stat-desc {
-            padding-left: 0;
-            font-size: 13px;
-            line-height: 1.65;
-          }
-          .big-img {
-            width: min(100%, 290px);
-            height: 360px;
-            border-radius: 0 120px 0 0;
-          }
-          .sparkle-svg {
-            margin-bottom: 10px;
-          }
-          .jw-quote {
-            font-size: 13.5px;
-            line-height: 1.7;
-            max-width: 100%;
-          }
+          .stat-row { margin-bottom: 10px; }
+          .stat-label { font-size: 22px; }
+          .stat-desc { padding-left: 0; font-size: 13px; line-height: 1.65; }
+
+          .big-img { width: min(100%, 290px); height: 360px; border-radius: 0 120px 0 0; }
+
+          .sparkle-svg { margin-bottom: 10px; }
+          .jw-quote { font-size: 13.5px; line-height: 1.7; max-width: 100%; text-align: center; }
+
+          /* last image — centered and bigger */
           .small-img {
-            width: 132px;
-            height: 178px;
-            margin-top: 16px;
+            width: min(100%, 260px) !important;
+            height: 280px !important;
+            border-radius: 130px 0 0 0 !important;
+            margin: 20px auto 0 !important;
           }
-          .jw-marquee span {
-            gap: 14px;
-            padding: 8px 18px 9px;
-            font-size: 20px;
-          }
+
+          .jw-marquee span { gap: 14px; padding: 8px 18px 9px; font-size: 20px; }
         }
       `}</style>
 
-      <div className="jw" id="home">
+      <div className={`jw${loaded ? ' hero-loaded' : ''}`} id="home">
 
-        {/* NAV */}
+        {/* ── MOBILE TOP BAR: logo + hamburger in one row ── */}
+        <div className="jw-mobile-top">
+          <div style={{ width: 150, height: 48, position: 'relative' }}>
+            <Image
+              src="/logo.svg"
+              alt="Skinsa Aesthetic"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <button
+            className={`jw-toggle${menuOpen ? ' open' : ''}`}
+            onClick={() => setMenuOpen(v => !v)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          >
+            <span /><span /><span />
+          </button>
+        </div>
+
+        {/* ── MOBILE DROPDOWN ── */}
+        {menuOpen && (
+          <div className="jw-mobile-menu">
+            <div className="jw-mobile-menu-header">
+              <div style={{ width: 140, height: 44, position: 'relative' }}>
+                <Image src="/logo.svg" alt="Skinsa Aesthetic" fill className="object-contain" />
+              </div>
+              <button
+                className="jw-toggle open"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <span /><span /><span />
+              </button>
+            </div>
+            <nav>
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        )}
+
+        {/* ── DESKTOP / TABLET NAV ── */}
         <nav className="jw-nav">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}>
@@ -481,7 +496,7 @@ export default function JewelryHero() {
           ))}
         </nav>
 
-        {/* LOGO BADGE */}
+        {/* ── LOGO BADGE (desktop/tablet only) ── */}
         <div className="jw-badge">
           <div className="jw-logo">
             <Image
@@ -495,10 +510,10 @@ export default function JewelryHero() {
           </div>
         </div>
 
-        {/* TITLE */}
+        {/* ── TITLE ── */}
         <h1 className="jw-title">Shape Your Body With Ease</h1>
 
-        {/* 3-COL GRID */}
+        {/* ── 3-COL GRID ── */}
         <div className="jw-grid">
 
           {/* LEFT */}
@@ -533,7 +548,7 @@ export default function JewelryHero() {
             </div>
           </div>
 
-          {/* CENTER — big image, top-right radius only */}
+          {/* CENTER */}
           <div className="jw-center">
             <div className="big-img">
               <div className="big-img-inner">
@@ -550,16 +565,12 @@ export default function JewelryHero() {
 
           {/* RIGHT */}
           <div className="jw-right">
-            {/* 4-point star sparkle */}
             <svg className="sparkle-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 1.5 L13.3 10.7 L22.5 12 L13.3 13.3 L12 22.5 L10.7 13.3 L1.5 12 L10.7 10.7 Z"/>
             </svg>
-
             <p className="jw-quote">
-              "Lose stubborn fat safely with advanced non-surgical treatments designed for visible inch loss and body contouring."
+              &ldquo;Lose stubborn fat safely with advanced non-surgical treatments designed for visible inch loss and body contouring.&rdquo;
             </p>
-
-            {/* small image — top-left radius only */}
             <div className="small-img">
               <div className="small-img-inner">
                 <Image
@@ -574,13 +585,18 @@ export default function JewelryHero() {
 
         </div>
 
+        {/* ── MARQUEE ── */}
         <div className="jw-marquee" aria-hidden="true">
           <div className="jw-marquee-track">
-            {[...["COOLSCULPTING", "LIPODISSOLVE", "INCH LOSS", "BODY CONTOURING", "WEIGHT LOSS", "WELLNESS"], ...["COOLSCULPTING", "LIPODISSOLVE", "INCH LOSS", "BODY CONTOURING", "WEIGHT LOSS", "WELLNESS"]].map((item, index) => (
+            {[
+              ...["COOLSCULPTING", "LIPODISSOLVE", "INCH LOSS", "BODY CONTOURING", "WEIGHT LOSS", "WELLNESS"],
+              ...["COOLSCULPTING", "LIPODISSOLVE", "INCH LOSS", "BODY CONTOURING", "WEIGHT LOSS", "WELLNESS"],
+            ].map((item, index) => (
               <span key={`${item}-${index}`}>{item}</span>
             ))}
           </div>
         </div>
+
       </div>
     </>
   );

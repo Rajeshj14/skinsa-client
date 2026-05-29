@@ -30,11 +30,11 @@ export default function Footer() {
         <div className="space-y-5">
           <Link href="/" aria-label="Skinsa Aesthetic Home" className="inline-flex">
             <Image
-              src="/logo.svg"
+              src="/logo-skinsa.jpg"
               alt="Skinsa Aesthetic"
               width={210}
               height={66}
-              className="h-auto w-[170px] object-contain sm:w-[190px]"
+              className="h-auto w-[140px] object-contain sm:w-[150px]"
             />
           </Link>
           <p className="max-w-sm text-sm leading-7 text-black/60">
