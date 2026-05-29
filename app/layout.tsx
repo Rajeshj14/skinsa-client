@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSerif.variable} ${workSans.variable} ${sourceSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-work-sans)]">
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
         <RevealObserver />
         {children}
         <Footer />

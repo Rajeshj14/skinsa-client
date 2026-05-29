@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { useState, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const LIME = '#C9A96E'
 const BG   = '#0F3F37'
@@ -37,11 +37,12 @@ function FeatureCard({ f, i }: { f: typeof features[0]; i: number }) {
     <div
       data-reveal="bottom"
       data-delay={String(i * 80)}
-      className="flex flex-col overflow-hidden h-full"
+      className="why-card flex flex-col overflow-hidden h-full"
       style={{
+        '--why-delay': `${i * 90}ms`,
         backgroundColor: 'rgba(255,255,255,0.05)',
         border: '1px solid rgba(255,255,255,0.1)',
-      }}
+      } as React.CSSProperties}
     >
       <div className="relative w-full h-[239px] sm:h-[300px] shrink-0 overflow-hidden">
         <Image
@@ -73,6 +74,25 @@ function FeatureCard({ f, i }: { f: typeof features[0]; i: number }) {
 export default function WhyUs() {
   const [current, setCurrent] = useState(0)
   const trackRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        section.classList.add('why-us-visible')
+        observer.disconnect()
+      },
+      { threshold: 0.18, rootMargin: '0px 0px -10% 0px' },
+    )
+
+    observer.observe(section)
+
+    return () => observer.disconnect()
+  }, [])
 
   const scrollToIndex = (i: number) => {
     const track = trackRef.current
@@ -96,15 +116,66 @@ export default function WhyUs() {
   }
 
   return (
-    <section
-      id="why-choose-us"
-      style={{ backgroundColor: BG }}
-      className="w-full scroll-mt-28 py-10 sm:py-16 lg:py-20 px-6 overflow-hidden"
-    >
+    <>
+      <style>{`
+        .why-anim {
+          opacity: 0;
+          filter: blur(10px);
+          transform: translate3d(0, 34px, 0);
+          transition:
+            opacity 850ms ease,
+            filter 850ms ease,
+            transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+          transition-delay: var(--why-delay, 0ms);
+          will-change: opacity, filter, transform;
+        }
+
+        .why-card {
+          opacity: 0;
+          filter: blur(10px);
+          transform: translate3d(0, 42px, 0);
+          transition:
+            opacity 850ms ease,
+            filter 850ms ease,
+            transform 850ms cubic-bezier(0.22, 1, 0.36, 1),
+            border-color 250ms ease,
+            background-color 250ms ease;
+          transition-delay: var(--why-delay, 0ms);
+          will-change: opacity, filter, transform;
+        }
+
+        .why-us-visible .why-anim,
+        .why-us-visible .why-card {
+          opacity: 1;
+          filter: blur(0);
+          transform: translate3d(0, 0, 0);
+        }
+
+        .why-card:hover {
+          border-color: rgba(201,169,110,0.55);
+          background-color: rgba(255,255,255,0.08);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .why-anim,
+          .why-card {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            transition: none;
+          }
+        }
+      `}</style>
+      <section
+        ref={sectionRef}
+        id="why-choose-us"
+        style={{ backgroundColor: BG }}
+        className="w-full scroll-mt-28 py-10 sm:py-16 lg:py-20 px-6 overflow-hidden"
+      >
       <div className="mx-auto max-w-7xl">
 
         {/* Header */}
-        <div className="mb-8 sm:mb-10 lg:mb-14">
+        <div className="why-anim mb-8 sm:mb-10 lg:mb-14">
           <div className="flex items-center gap-2.5 mb-3 lg:mb-4">
             <span className="h-[2px] w-10 shrink-0" style={{ backgroundColor: LIME }} />
             <span
@@ -125,7 +196,7 @@ export default function WhyUs() {
         </div>
 
         {/* ── Mobile / Tablet: Carousel (hidden on lg+) ── */}
-        <div className="lg:hidden">
+        <div className="why-anim lg:hidden" style={{ '--why-delay': '160ms' } as React.CSSProperties}>
           <div
             ref={trackRef}
             onScroll={handleScroll}
@@ -168,6 +239,7 @@ export default function WhyUs() {
         </div>
 
       </div>
-    </section>
+      </section>
+    </>
   )
 }

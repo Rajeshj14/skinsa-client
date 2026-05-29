@@ -52,7 +52,6 @@ export default function AboutUs() {
           >
             Feel More Confident Every{' '}
             <span style={{ color: GOLD }}>Time You </span>
-            <br />
             <span style={{ color: GOLD }}>Look in </span> the Mirror
           </h2>
 
@@ -70,7 +69,6 @@ export default function AboutUs() {
             <div
               className="absolute bottom-0 left-0 w-[62%] h-[75%] lg:h-[420px] overflow-hidden"
               style={{
-                borderRadius: '60px 0 60px 0',
                 border: `1.5px solid rgba(201,169,110,0.3)`,
                 zIndex: 1,
               }}
@@ -83,7 +81,6 @@ export default function AboutUs() {
             <div
               className="absolute top-0 right-0 w-[48%] h-[44%] lg:h-[240px] overflow-hidden"
               style={{
-                borderRadius: '0 60px 0 60px',
                 border: `2.5px solid rgba(237,163,25,0.25)`,
                 zIndex: 2,
               }}
@@ -93,7 +90,7 @@ export default function AboutUs() {
             </div>
 
             {/* Image 3 — medium, bottom-right overlapping */}
-            <div
+            {/* <div
               className="absolute bottom-0 right-4 w-[46%] h-[52%] lg:h-[280px] overflow-hidden"
               style={{
                 borderRadius: '0 60px 0 60px',
@@ -103,7 +100,7 @@ export default function AboutUs() {
             >
               <Image src="/abt-img-4.jpg" alt="Skinsa Treatment 3" fill className="object-cover object-center" />
               <div className="absolute inset-0 bg-black/15" />
-            </div>
+            </div> */}
 
             {/* Gold dot grid — top left */}
             <div className="absolute top-4 left-0 grid grid-cols-5 gap-[6px] z-0 pointer-events-none">
@@ -114,11 +111,10 @@ export default function AboutUs() {
 
             {/* Experience badge */}
             <div
-              className="absolute bottom-6 left-[54%] -translate-x-1/2 z-10
+              className="absolute bottom-6 left-[64%] -translate-x-1/2 z-10
                           flex flex-col items-center justify-center text-center px-4 py-3"
               style={{
                 backgroundColor: GOLD,
-                borderRadius: '0 25px 0 25px',
                 minWidth: '90px',
               }}
             >
@@ -155,7 +151,6 @@ export default function AboutUs() {
                 style={{
                   backgroundColor: 'rgba(15,63,55,0.04)',
                   border: '1px solid rgba(15,63,55,0.12)',
-                  borderRadius: '16px 0 16px 0',
                 }}
               >
                 <div
