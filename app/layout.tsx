@@ -56,7 +56,6 @@ export default function RootLayout({
         {/* <ScrollToTop /> */}
         <RevealObserver />
         {children}
-        <Footer />
         <MobileActionBar />
       </body>
     </html>

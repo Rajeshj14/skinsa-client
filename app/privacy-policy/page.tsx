@@ -1,5 +1,6 @@
 import Navbared from '@/component/navthank'
 import PrivacyPolicyPage from '@/component/privacy-policy'
+import Footers from '@/component/thank-footer'
 import React from 'react'
 
 const page = () => {
@@ -7,6 +8,7 @@ const page = () => {
     <div>
       <Navbared />
       <PrivacyPolicyPage />
+      <Footers />
     </div>
   )
 }

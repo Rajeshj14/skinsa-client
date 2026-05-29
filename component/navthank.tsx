@@ -3,11 +3,12 @@ import Link from "next/link";
 
 // Logo gold colour - matches the SKINSA wordmark
 const GOLD = "#C9A96E";
+const GREEN = "#0F3F37";
 
 
 export default function Navbared() {
   return (
-    <header className="w-full bg-black border-b border-white/10">
+    <header style={{ backgroundColor: GREEN }} className="w-full border-b border-[#C9A96E]/25">
       <nav className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-3 sm:px-6 lg:px-8 xl:grid xl:grid-cols-[auto_1fr_auto] xl:px-10">
         {/* Left: Logo */}
         <Link href="/" aria-label="Skinsa Aesthetic Home" className="shrink-0">

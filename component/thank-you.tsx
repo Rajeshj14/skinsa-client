@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 const GOLD = "#C9A96E";
-const GREEN = "#0F3F37";
 
 const nextSteps = [
   {
@@ -23,7 +22,7 @@ const nextSteps = [
 
 export default function ThankYouPage() {
   return (
-    <main style={{ backgroundColor: GREEN }} className="text-white">
+    <main className="bg-white text-[#0F3F37]">
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-16 xl:px-10">
         <div data-reveal="left">
           <p
@@ -36,7 +35,7 @@ export default function ThankYouPage() {
           <h1 data-reveal="left" data-delay="100" className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
             Thank You
           </h1>
-          <p data-reveal="left" data-delay="200" className="mt-5 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
+          <p data-reveal="left" data-delay="200" className="mt-5 max-w-xl text-sm leading-7 text-black/65 sm:text-base">
             Your enquiry has been received. Our team will connect with you soon
             to help you with consultation details and appointment confirmation.
           </p>
@@ -50,20 +49,20 @@ export default function ThankYouPage() {
             </Link>
             <Link
               href="tel:+918007070530"
-              className="inline-flex cursor-pointer justify-center border border-[#C9A96E]/70 px-6 py-2.5 text-sm font-semibold tracking-wide text-white transition-all duration-200 hover:border-[#C9A96E] hover:bg-[#C9A96E] hover:text-black active:scale-95"
+              className="inline-flex cursor-pointer justify-center border border-[#0F3F37]/25 px-6 py-2.5 text-sm font-semibold tracking-wide text-[#0F3F37] transition-all duration-200 hover:border-[#C9A96E] hover:bg-[#C9A96E] hover:text-black active:scale-95"
             >
               Call +91 8007070530
             </Link>
           </div>
         </div>
 
-        <div data-reveal="right" data-delay="150" className="border border-[#C9A96E]/30 bg-white/[0.06] p-5 sm:p-6 lg:p-8">
+        <div data-reveal="right" data-delay="150" className="border border-[#C9A96E]/35 bg-[#0F3F37]/[0.04] p-5 sm:p-6 lg:p-8">
           <h2 className="text-2xl font-semibold" style={{ color: GOLD }}>
             What Happens Next?
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-4">
             {nextSteps.map((step, index) => (
-              <article key={step.title} data-reveal="bottom" data-delay={String(index * 120)} className="border border-[#C9A96E]/20 bg-white/[0.08] p-4">
+              <article key={step.title} data-reveal="bottom" data-delay={String(index * 120)} className="border border-[#0F3F37]/10 bg-white p-4">
                 <div className="flex items-start gap-4">
                   <span
                     className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-black"
@@ -72,10 +71,10 @@ export default function ThankYouPage() {
                     {index + 1}
                   </span>
                   <div>
-                    <h3 className="text-base font-semibold text-white">
+                    <h3 className="text-base font-semibold text-[#0F3F37]">
                       {step.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-white/65">
+                    <p className="mt-2 text-sm leading-6 text-black/60">
                       {step.description}
                     </p>
                   </div>

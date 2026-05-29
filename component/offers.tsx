@@ -6,7 +6,7 @@ const BG   = '#FFFFFF'
 const DARK = '#0F3F37'
 
 const offers = [
-  { tag: '01', img: '/offer-img-1.png', discount: '45' },
+  { tag: '01', img: '/offer-img.png', discount: '45' },
   { tag: '02', img: '/offer-img-2.png', discount: '35' },
 ]
 

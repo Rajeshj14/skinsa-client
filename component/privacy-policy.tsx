@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const GOLD = "#C9A96E";
-const GREEN = "#0F3F37";
 
 const policySections = [
   {
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main style={{ backgroundColor: GREEN }} className="text-white">
+    <main className="bg-white text-[#0F3F37]">
       <section className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
         <p
           data-reveal="top"
@@ -68,12 +67,12 @@ export default function PrivacyPolicyPage() {
         <h1 data-reveal="left" data-delay="100" className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
           Privacy Policy
         </h1>
-        <p data-reveal="left" data-delay="200" className="mt-5 max-w-3xl text-sm leading-7 text-white/70 sm:text-base">
+        <p data-reveal="left" data-delay="200" className="mt-5 max-w-3xl text-sm leading-7 text-black/65 sm:text-base">
           This Privacy Policy explains how Skinsa Aesthetic collects, uses, and
           protects information shared through our website, enquiries, and
           appointment requests.
         </p>
-        <p data-reveal="bottom" data-delay="300" className="mt-4 text-sm text-white/55">Effective date: May 27, 2026</p>
+        <p data-reveal="bottom" data-delay="300" className="mt-4 text-sm text-black/55">Effective date: May 27, 2026</p>
       </section>
 
       <section className="mx-auto max-w-5xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-10">
@@ -83,14 +82,14 @@ export default function PrivacyPolicyPage() {
               key={section.title}
               data-reveal={index % 2 === 0 ? "left" : "right"}
               data-delay={String(index * 90)}
-              className="border border-[#C9A96E]/25 bg-white/[0.06] p-5 sm:p-6"
+              className="border border-[#0F3F37]/10 bg-[#0F3F37]/[0.04] p-5 sm:p-6"
             >
               <h2 className="text-xl font-semibold" style={{ color: GOLD }}>
                 {section.title}
               </h2>
               <div className="mt-4 space-y-3">
                 {section.body.map((paragraph) => (
-                  <p key={paragraph} className="text-sm leading-7 text-white/70">
+                  <p key={paragraph} className="text-sm leading-7 text-black/65">
                     {paragraph}
                   </p>
                 ))}
@@ -99,11 +98,11 @@ export default function PrivacyPolicyPage() {
           ))}
         </div>
 
-        <div data-reveal="bottom" data-delay="240" className="mt-8 border border-[#C9A96E]/25 bg-white/[0.08] p-5 sm:p-6">
+        <div data-reveal="bottom" data-delay="240" className="mt-8 border border-[#0F3F37]/10 bg-[#0F3F37]/[0.04] p-5 sm:p-6">
           <h2 className="text-xl font-semibold" style={{ color: GOLD }}>
             Contact Us
           </h2>
-          <div className="mt-4 space-y-2 text-sm leading-7 text-white/70">
+          <div className="mt-4 space-y-2 text-sm leading-7 text-black/65">
             <p>
               For privacy-related questions, please contact Skinsa Aesthetic
               Clinic.

@@ -4,8 +4,9 @@ import Image from "next/image";
 import { type CSSProperties, type ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-const GOLD = "#C9A96E";
-const BG   = "#0D0D0D";
+const GOLD  = "#C9A96E";
+const BG    = "#0F3F37";
+const GREEN = "#0F3F37";
 
 type BookingButtonProps = {
   children: ReactNode;
@@ -98,7 +99,10 @@ export default function BookingButton({
               type="button"
               onClick={() => setIsOpen(false)}
               aria-label="Close booking form"
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 cursor-pointer items-center justify-center bg-black/80 text-white transition hover:bg-white hover:text-black"
+              className="absolute right-4 top-4 z-20 flex h-10 w-10 cursor-pointer items-center justify-center text-white transition"
+              style={{ backgroundColor: GREEN, border: `1px solid ${GOLD}` }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = GOLD; (e.currentTarget as HTMLButtonElement).style.color = '#000'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = GREEN; (e.currentTarget as HTMLButtonElement).style.color = '#fff'; }}
             >
               <span aria-hidden="true" className="text-2xl leading-none">
                 &times;
