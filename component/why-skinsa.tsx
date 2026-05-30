@@ -161,9 +161,8 @@ function ReasonCard({ number, title }: { number: number; title: string }) {
       </h3>
       <div className="shrink-0">
         <span
-          className="flex h-9 w-9 items-center justify-center
-                     border text-[12px] font-bold tracking-[0.08em] text-[#0F3F37]"
-          style={{ borderColor: GOLD }}
+          className="flex h-9 w-9 items-center justify-center border text-[12px] font-bold tracking-[0.08em] text-[#0F3F37]"
+          style={{ borderColor: GOLD,fontFamily: "'DM Serif Display', serif" }}
         >
           {String(number).padStart(2, '0')}
         </span>

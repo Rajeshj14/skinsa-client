@@ -20,7 +20,7 @@ const contactDetails = [
       "Shop no 101,102, B wing, shubh gateway, Opp.Symbiosis law school, viman Nagar, pune, Mh 411014.",
   },
   { label: "Email", value: "info@skinsaa.com" },
-  { label: "Phone", value: "+91 8007070530" },
+  { label: "Phone", value: "+91 8446444858" },
 ];
 
 export default function Footers() {

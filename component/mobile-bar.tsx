@@ -2,8 +2,8 @@
 
 import BookingButton from "@/component/booking-button";
 
-const PHONE_NUMBER = "+918007070530";
-const DISPLAY_PHONE = "+91 80070 70530";
+const PHONE_NUMBER = "+918446444858";
+const DISPLAY_PHONE = "+91 8446444858";
 
 export default function MobileActionBar() {
   return (

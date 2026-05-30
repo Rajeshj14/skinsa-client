@@ -112,7 +112,7 @@ export default function PrivacyPolicyPage() {
               law school, viman Nagar, pune, Mh 411014.
             </p>
             <p>Email: info@skinsaa.com.</p>
-            <p>Phone: +91 8007070530</p>
+            <p>Phone: +91 8446444858</p>
           </div>
         </div>
 

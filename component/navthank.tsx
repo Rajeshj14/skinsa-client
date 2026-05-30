@@ -25,11 +25,11 @@ export default function Navbared() {
         {/* Right: CTA Button */}
         <div className="shrink-0 flex items-center justify-end">
           <Link
-            href="tel: +91 8007070530"
+            href="tel: +91 8446444858"
             className="bg-[#C9A96E] group cursor-pointer border px-4 py-2 text-[12px] font-semibold tracking-wide text-black transition-all duration-200 hover:bg-white hover:border-white hover:text-black active:scale-95 sm:px-5 sm:text-[13px] xl:px-7 xl:py-2.5 xl:text-[13.5px]"
           >
-            <span className="sm:hidden">+91 8007070530</span>
-            <span className="hidden sm:inline">+91 8007070530</span>
+            <span className="sm:hidden">+91 8446444858</span>
+            <span className="hidden sm:inline">+91 8446444858</span>
           </Link>
         </div>
       </nav>

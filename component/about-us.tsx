@@ -116,6 +116,7 @@ export default function AboutUs() {
               className="absolute bottom-6 left-[64%] -translate-x-1/2 z-10
                           flex flex-col items-center justify-center text-center px-4 py-3"
               style={{
+                fontFamily: "'DM Serif Display', serif" ,
                 borderRadius: '20px 0px 20px 0px',
                 backgroundColor: GOLD,
                 minWidth: '90px',

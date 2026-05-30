@@ -48,10 +48,10 @@ export default function ThankYouPage() {
               Back to Home
             </Link>
             <Link
-              href="tel:+918007070530"
+              href="tel:+918446444858"
               className="inline-flex cursor-pointer justify-center border border-[#0F3F37]/25 px-6 py-2.5 text-sm font-semibold tracking-wide text-[#0F3F37] transition-all duration-200 hover:border-[#C9A96E] hover:bg-[#C9A96E] hover:text-black active:scale-95"
             >
-              Call +91 8007070530
+              Call +91 8446444858
             </Link>
           </div>
         </div>

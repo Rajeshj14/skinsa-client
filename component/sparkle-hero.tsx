@@ -528,7 +528,7 @@ export default function JewelryHero() {
             <div className="stat-block">
               <div className="stat-row">
                 <span className="stat-star">✦</span>
-                <span className="stat-label">45% OFF</span>
+                <span className="stat-label" style={{ fontFamily: "'DM Serif Display', serif" }}>45% OFF</span>
               </div>
               <h3 className="stat-label" style={{ fontSize: "20px", marginBottom: "10px", paddingLeft: "24px" }}>
                 Overall Fat Loss
@@ -542,7 +542,7 @@ export default function JewelryHero() {
             <div className="stat-block">
               <div className="stat-row">
                 <span className="stat-star">✦</span>
-                <span className="stat-label">35% OFF</span>
+                <span className="stat-label" style={{ fontFamily: "'DM Serif Display', serif" }}>35% OFF</span>
               </div>
               <h3 className="stat-label" style={{ fontSize: "20px", marginBottom: "10px", paddingLeft: "24px" }}>
                 Fat Reduction for Specific Areas
@@ -594,7 +594,7 @@ export default function JewelryHero() {
 
         {/* ── MARQUEE ── */}
         <div className="jw-marquee" aria-hidden="true">
-          <div className="jw-marquee-track">
+          <div className="jw-marquee-track" style={{ fontFamily: "'DM Serif Display', serif" }}>
             {[
               ...["Advanced Aesthetic Technology", "Expert-Guided Programs", "Customised Body Sculpting Solutions",],
               ...["Advanced Aesthetic Technology", "Expert-Guided Programs", "Customised Body Sculpting Solutions",],

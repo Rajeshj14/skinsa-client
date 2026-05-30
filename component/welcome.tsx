@@ -96,7 +96,7 @@ export default function Welcome() {
                           w-[90px] h-[90px] sm:w-[120px] sm:h-[120px] lg:w-[148px] lg:h-[148px]"
               style={{ backgroundColor: GOLD }}
             >
-              <span className="text-[32px] sm:text-[44px] lg:text-[58px] font-black text-black leading-none tracking-tight">
+              <span className="text-[32px] sm:text-[44px] lg:text-[35px] font-black text-black leading-none tracking-tight" style={{ fontFamily: "'DM Serif Display', serif" }}>
                 5+
               </span>
               <span
@@ -149,7 +149,7 @@ export default function Welcome() {
           {stats.map((s, i) => (
             <div key={i} data-reveal="bottom" data-delay={String(i * 120)} className="flex flex-col items-center text-center">
               <div className="flex items-end leading-none mb-1 lg:mb-2">
-                <span className="text-[32px] sm:text-[44px] lg:text-[58px] font-black text-white leading-none tracking-tight">
+                <span className="text-[32px] sm:text-[44px] lg:text-[58px] font-black text-white mr-1 leading-none tracking-tight" style={{ fontFamily: "'DM Serif Display', serif" }}>
                   {s.value}
                 </span>
                 <span
