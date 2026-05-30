@@ -3,7 +3,7 @@ import Link from "next/link";
 import BookingButton from "@/component/booking-button";
 
 const GOLD = "#C9A96E";
-const BG   = "#0F3F37";
+const BG   = "#2d726d";
 
 const quickLinks = [
   { label: "Home", href: "/#home" },
@@ -19,7 +19,6 @@ const contactDetails = [
     value:
       "Shop no 101,102, B wing, shubh gateway, Opp.Symbiosis law school, viman Nagar, pune, Mh 411014.",
   },
-  { label: "Email", value: "info@skinsaa.com" },
   { label: "Phone", value: "+91 8446444858" },
 ];
 
@@ -37,13 +36,18 @@ export default function Footers() {
               className="h-auto w-[160px] object-contain sm:w-[180px]"
             />
           </Link>
-          <p className="max-w-sm text-sm leading-7 text-white/60">
+          <p className="max-w-sm text-sm leading-7 text-white/100">
             Premium aesthetic skincare clinic focused on personalised care,
             advanced treatments, and refined results.
           </p>
           <BookingButton
             ariaLabel="Book appointment"
-            className="inline-flex bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-white hover:text-[#0F3F37] active:scale-95"
+            className="inline-flex bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-[#0F3F37] hover:text-white active:scale-95"
+            hoverStyle={{
+              backgroundColor: 'WHITE',
+              borderColor: '#2d726d',
+              color: 'BLACK',
+            }}
           >
             Book Appointment
           </BookingButton>
@@ -58,7 +62,7 @@ export default function Footers() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-white/60 transition-colors duration-200 hover:text-white"
+                  className="text-sm text-white/90 transition-colors duration-200 hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -76,7 +80,7 @@ export default function Footers() {
           </h2>
           <ul className="mt-5 space-y-1">
             {contactDetails.map((detail) => (
-              <li key={detail.label} className="text-sm leading-6 text-white/60">
+              <li key={detail.label} className="text-sm leading-6 text-white/100">
                 <span className="block font-semibold text-white">
                   {detail.label}
                 </span>
@@ -104,11 +108,11 @@ export default function Footers() {
       </div>
 
       <div className="border-t border-white/10 max-sm:mb-15">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-2 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-2 text-sm text-white/90 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-10">
           <p>&copy; {new Date().getFullYear()} Skinsa Aesthetic. All rights reserved.</p>
           <Link
             href="/privacy-policy"
-            className="text-sm text-white/60 transition-colors duration-200 hover:text-[#C9A96E]"
+            className="text-sm text-white/90 transition-colors duration-200 hover:text-[#C9A96E]"
           >
             Privacy Policy
           </Link>

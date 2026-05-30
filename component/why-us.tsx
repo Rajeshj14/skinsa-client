@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
 const LIME = '#C9A96E'
-const BG   = '#0F3F37'
+const BG   = '#2d726d'
 
 const features = [
   {
@@ -61,10 +61,10 @@ function FeatureCard({ f, i }: { f: typeof features[0]; i: number }) {
       </div>
       <div className="h-[2px] w-full shrink-0" style={{ backgroundColor: LIME, opacity: 0.6 }} />
       <div className="flex flex-col gap-1.5 sm:gap-2 p-3 sm:p-4 flex-1">
-        <h3 className="text-[12px] sm:text-[14px] font-bold text-white leading-snug">
+        <h3 className="text-[12px] sm:text-[16px] font-bold text-white leading-snug">
           {f.title}
         </h3>
-        <p className="text-[11px] sm:text-[12.5px] text-white/55 leading-relaxed">
+        <p className="text-[11px] sm:text-[14.5px] text-white/85 leading-relaxed">
           {f.desc}
         </p>
       </div>

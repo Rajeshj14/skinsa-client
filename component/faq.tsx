@@ -5,7 +5,7 @@ import Image from 'next/image'
 import BookingButton from '@/component/booking-button'
 
 const GOLD = '#C9A96E'
-const BG = '#0F3F37'
+const BG = '#2d726d'
 
 const faqs = [
   {
@@ -144,7 +144,7 @@ export default function FAQ() {
                     className={`w-full cursor-pointer flex items-center justify-between px-4 sm:px-5 py-[12px] sm:py-[14px] text-left text-[11px] sm:text-[12px] font-bold tracking-[0.09em] uppercase transition-colors duration-200 ${
                       isOpen
                         ? 'bg-[#C9A96E] text-black'
-                        : 'bg-[#0F3F37] text-white hover:bg-[#C9A96E] hover:text-black'
+                        : 'bg-white text-black hover:bg-[#C9A96E] hover:text-black'
                     }`}
                     style={{
                       border: isOpen ? 'none' : '1px solid rgba(255,255,255,0.2)',

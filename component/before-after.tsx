@@ -5,7 +5,7 @@ import Image from 'next/image'
 import BookingButton from './booking-button'
 
 const GOLD = '#C9A96E'
-const BG = '#0F3F37'
+const BG = '#2d726d'
 const DIR  = '/Before-after-statics'
 
 const images = [
@@ -14,10 +14,10 @@ const images = [
   // { src: `${DIR}/KRUPA FATLOSS PPT - 3.jpg`,   label: 'Fat Loss'           },
   // { src: `${DIR}/RAMESH DHANEKUL - 1.jpg`,     label: 'Body Transformation' },
   { src: `${DIR}/RAMESH DHANEKUL - 2.jpg`,     label: '' },
-  { src: `${DIR}/bfaf-img-1.png`,    label: ''    },
-  { src: `${DIR}/bfaf-img-2.png`,    label: ''    },
+  // { src: `${DIR}/bfaf-img-1.png`,    label: ''    },
+  // { src: `${DIR}/bfaf-img-2.png`,    label: ''    },
   // { src: `${DIR}/priyanka kalamkar - 1.jpg`,   label: 'Inch Loss'          },
-  { src: `${DIR}/bfaf-img-3.png`,   label: ''          },
+  // { src: `${DIR}/bfaf-img-3.png`,   label: ''          },
   // { src: `${DIR}/shraddha ahwale - 1.jpg`,     label: 'Weight Management'  },
   // { src: `${DIR}/shraddha ahwale - 2.jpg`,     label: 'Weight Management'  },
   // { src: `${DIR}/somnath ahwale - 1.jpg`,      label: 'Sculpting'          },

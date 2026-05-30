@@ -44,8 +44,8 @@ export default function Footer() {
             ariaLabel="Book appointment"
             className="inline-flex bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-[#0F3F37] hover:text-white active:scale-95"
             hoverStyle={{
-              backgroundColor: '#0F3F37',
-              borderColor: '#0F3F37',
+              backgroundColor: '#2d726d',
+              borderColor: '#2d726d',
               color: '#ffffff',
             }}
           >

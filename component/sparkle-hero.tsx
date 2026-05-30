@@ -102,8 +102,8 @@ export default function JewelryHero() {
           inset: 0;
           z-index: -1;
           background:
-            linear-gradient(90deg, rgba(15,63,55,0.92) 0%, rgba(15,63,55,0.78) 48%, rgba(15,63,55,0.58) 100%),
-            rgba(15,63,55,0.42);
+            linear-gradient(90deg, rgba(45,114,109,0.92) 0%, rgba(45,114,109,0.78) 48%, rgba(45,114,109,0.58) 100%),
+            rgba(45,114,109,0.42);
         }
 
         /* ── DESKTOP / TABLET NAV ── */
@@ -164,7 +164,7 @@ export default function JewelryHero() {
         .jw-mobile-menu {
           position: absolute;
           top: 0; left: 0; right: 0;
-          background: rgba(10,46,40,0.98);
+          background: rgba(45,114,109,0.98);
           border-bottom: 1px solid rgba(201,169,110,0.3);
           padding: 12px 18px 18px;
           z-index: 200;
@@ -245,13 +245,7 @@ export default function JewelryHero() {
           padding: 20px 22px;
           border: 1px solid rgba(201,169,110,0.44);
           border-radius: 18px;
-          background:
-            linear-gradient(135deg, rgba(15,63,55,0.88) 0%, rgba(15,63,55,0.62) 100%),
-            rgba(255,255,255,0.06);
-          box-shadow:
-            inset 0 1px 0 rgba(255,255,255,0.08),
-            0 16px 34px rgba(0,0,0,0.18);
-          backdrop-filter: blur(10px);
+          background: transparent;
         }
         .stat-block:last-child { margin-bottom: 0; }
         .stat-row {
@@ -298,7 +292,7 @@ export default function JewelryHero() {
           height: 100%;
           overflow: hidden;
           border-radius: inherit;
-          background: linear-gradient(168deg, #0F3F37 0%, #1f6b5d 46%, #C9A96E 100%);
+          background: linear-gradient(168deg, #2d726d 0%, #3f8d87 46%, #C9A96E 100%);
         }
         .big-img-inner img {
           width: 100%; height: 100%;
@@ -321,7 +315,7 @@ export default function JewelryHero() {
         }
         .jw-quote {
           font-size: 14.5px;
-          color: rgba(255,255,255,0.78);
+          color: rgba(255,255,255,0.88);
           line-height: 1.8;
           max-width: 290px;
         }
@@ -341,7 +335,7 @@ export default function JewelryHero() {
           width: 100%; height: 100%;
           overflow: hidden;
           border-radius: inherit;
-          background: linear-gradient(158deg, #0F3F37 0%, #1f6b5d 52%, #C9A96E 100%);
+          background: linear-gradient(158deg, #2d726d 0%, #3f8d87 52%, #C9A96E 100%);
         }
         .small-img-inner img {
           width: 100%; height: 100%;
@@ -357,8 +351,8 @@ export default function JewelryHero() {
           align-items: center;
           overflow: hidden;
           background: linear-gradient(180deg, #DCC48E 0%, #C9A96E 100%);
-          color: #0F3F37;
-          border-top: 1px solid rgba(15,63,55,0.35);
+          color: #2d726d;
+          border-top: 1px solid rgba(45,114,109,0.35);
           border-bottom: 0;
           box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
           clip-path: polygon(
@@ -392,7 +386,7 @@ export default function JewelryHero() {
           height: auto;
           border: 0;
           background: transparent;
-          color: #0F3F37;
+          color: #2d726d;
           font-size: 0.82em;
           line-height: 1;
           transform: none;
@@ -427,8 +421,8 @@ export default function JewelryHero() {
           .jw { background-position: center top; }
           .jw::after {
             background:
-              linear-gradient(180deg, rgba(15,63,55,0.94) 0%, rgba(15,63,55,0.82) 54%, rgba(15,63,55,0.72) 100%),
-              rgba(15,63,55,0.48);
+              linear-gradient(180deg, rgba(45,114,109,0.94) 0%, rgba(45,114,109,0.82) 54%, rgba(45,114,109,0.72) 100%),
+              rgba(45,114,109,0.48);
           }
 
           /* Hide desktop nav & standalone badge; show mobile top bar */

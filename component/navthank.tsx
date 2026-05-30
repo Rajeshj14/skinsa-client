@@ -3,7 +3,7 @@ import Link from "next/link";
 
 // Logo gold colour - matches the SKINSA wordmark
 const GOLD = "#C9A96E";
-const GREEN = "#0F3F37";
+const GREEN = "#2d726d";
 
 
 export default function Navbared() {

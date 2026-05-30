@@ -179,8 +179,8 @@ export default function AboutUs() {
               className="inline-flex items-center gap-3 px-7 sm:px-8 py-3 text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.16em] uppercase transition-all duration-200 "
               style={{ backgroundColor: GOLD, color: '#000' }}
               hoverStyle={{
-                backgroundColor: '#0F3F37',
-                borderColor: '#0F3F37',
+                backgroundColor: '#2d726d',
+                borderColor: '#2d726d',
                 color: 'white',
               }}
             >

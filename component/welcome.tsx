@@ -2,7 +2,7 @@ import Image from 'next/image'
 import BookingButton from '@/component/booking-button'
 
 const GOLD = '#C9A96E'
-const BG = '#0F3F37'
+const BG = '#2d726d'
 
 const stats = [
   { value: '98%', label: 'Client Satisfactory Rate' },
@@ -113,7 +113,7 @@ export default function Welcome() {
           <p
             data-reveal="right"
             data-delay="200"
-            className="text-[13px] sm:text-[14px] text-white/60 leading-relaxed
+            className="text-[13px] sm:text-[14px] text-white/95 leading-relaxed
                        mb-6 lg:mb-8 max-w-[460px]
                        lg:col-start-2 lg:row-start-3"
           >
@@ -159,7 +159,7 @@ export default function Welcome() {
                   +
                 </span>
               </div>
-              <span className="text-[10px] sm:text-[12px] lg:text-[13.5px] text-white/55 tracking-wide leading-snug">
+              <span className="text-[10px] sm:text-[12px] lg:text-[13.5px] text-white/100 tracking-wide leading-snug">
                 {s.label}
               </span>
             </div>
