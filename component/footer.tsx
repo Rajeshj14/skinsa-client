@@ -7,7 +7,7 @@ const BG   = "#FFFFFF";
 
 const quickLinks = [
   { label: "Home", href: "/#home" },
-  { label: "Why Choose Us", href: "/#why-choose-us" },
+  { label: "Treatments", href: "/#treatments" },
   { label: "About Us", href: "/#about" },
   { label: "Why Us", href: "/#why-us" },
   { label: "FAQ", href: "/#faq" },
@@ -19,7 +19,6 @@ const contactDetails = [
     value:
       "Shop no 101,102, B wing, shubh gateway, Opp.Symbiosis law school, viman Nagar, pune, Mh 411014.",
   },
-  { label: "Email", value: "info@skinsaa.com" },
   { label: "Phone", value: "+91 8446444858" },
 ];
 
@@ -44,6 +43,11 @@ export default function Footer() {
           <BookingButton
             ariaLabel="Book appointment"
             className="inline-flex bg-[#C9A96E] px-6 py-2.5 text-sm font-semibold tracking-wide text-black transition-all duration-200 hover:bg-[#0F3F37] hover:text-white active:scale-95"
+            hoverStyle={{
+              backgroundColor: '#0F3F37',
+              borderColor: '#0F3F37',
+              color: '#ffffff',
+            }}
           >
             Book Appointment
           </BookingButton>

@@ -178,14 +178,24 @@ export default function AboutUs() {
               ariaLabel="Open consultation form"
               className="inline-flex items-center gap-3 px-7 sm:px-8 py-3 text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.16em] uppercase transition-all duration-200 "
               style={{ backgroundColor: GOLD, color: '#000' }}
+              hoverStyle={{
+                backgroundColor: '#0F3F37',
+                borderColor: '#0F3F37',
+                color: 'white',
+              }}
             >
               More About Us
             </BookingButton>
             <BookingButton
               ariaLabel="More about Skinsa"
               className="group w-11 h-11 lg:w-12 lg:h-12 cursor-pointer flex items-center justify-center border border-[#C9A96E]/40 bg-[#C9A96E]/10 transition-all duration-200 hover:bg-[#C9A96E] active:scale-95"
+              hoverStyle={{
+                backgroundColor: GOLD,
+                borderColor: GOLD,
+                color: '#000',
+              }}
             >
-              <svg className="transition-colors duration-200 group-hover:stroke-black" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="transition-colors duration-200" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7" /><path d="M7 7h10v10" />
               </svg>
             </BookingButton>

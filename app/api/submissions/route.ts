@@ -10,6 +10,7 @@ const HEADERS = [
   'Name',
   'Phone',
   'Condition',
+  'Treatment',
   'URL',
   'TeleCRM',
 ];
@@ -21,6 +22,7 @@ type SubmissionBody = {
   name: string;
   phone: string;
   concern: string;
+  treatment: string;
   pageUrl: string;
 };
 
@@ -41,6 +43,7 @@ function normalizeSubmission(body: Record<string, unknown>): SubmissionBody {
     name: toText(body.name),
     phone: toText(body.phone),
     concern: toText(body.concern) || toText(body.condition),
+    treatment: toText(body.treatment),
     pageUrl: toText(body.pageUrl),
   };
 }
@@ -87,6 +90,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
     body.name,
     body.phone,
     body.concern,
+    body.treatment,
     body.pageUrl,
     telecrmStatus,
   ];
@@ -101,6 +105,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
       phone: body.phone,
       concern: body.concern,
       condition: body.concern,
+      treatment: body.treatment,
       pageUrl: body.pageUrl,
       url: body.pageUrl,
       telecrm: telecrmStatus,
@@ -152,6 +157,7 @@ async function pushToTeleCRM(body: SubmissionBody): Promise<TelecrmResponse | nu
       { type: 'SYSTEM_NOTE', text: `Source: ${body.source || 'Website'}` },
       { type: 'SYSTEM_NOTE', text: `URL: ${body.pageUrl || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Condition: ${body.concern || 'Not specified'}` },
+      { type: 'SYSTEM_NOTE', text: `Treatment: ${body.treatment || 'Not specified'}` },
     ],
   };
 
@@ -220,9 +226,9 @@ export async function POST(req: NextRequest) {
     const rawBody = await req.json();
     const body = normalizeSubmission(rawBody);
 
-    if (!body.name || !body.phone || !body.concern) {
+    if (!body.name || !body.phone || !body.concern || !body.treatment) {
       return NextResponse.json(
-        { success: false, error: 'Name, phone, and condition are required' },
+        { success: false, error: 'Name, phone, condition, and treatment are required' },
         { status: 400 },
       );
     }
@@ -236,6 +242,7 @@ export async function POST(req: NextRequest) {
       body.name,
       body.phone,
       body.concern,
+      body.treatment,
       body.pageUrl,
       telecrmStatus,
     ];

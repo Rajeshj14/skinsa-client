@@ -68,7 +68,7 @@ export default function BeforeAfter() {
 
   return (
     <section
-      className="w-full py-6 sm:py-16 lg:py-10 overflow-hidden"
+      className="w-full py-6 lg:pb-10 overflow-hidden"
       // style={{ backgroundColor: BG }}
     >
 
@@ -151,10 +151,14 @@ export default function BeforeAfter() {
               <div data-reveal="bottom" data-delay="340" className="flex justify-center mt-4">
                 <BookingButton
                   ariaLabel="Book free consultation"
-                  className="inline-flex items-center gap-2.5 sm:gap-3 border px-8 sm:px-10 py-3 sm:py-3.5 text-[12px] sm:text-[13.5px] font-semibold tracking-[0.12em] uppercase transition-all duration-200 hover:bg-white hover:border-white hover:text-black active:scale-95"
+                  className="inline-flex items-center gap-2.5 sm:gap-3 border bg-[#C9A96E] px-8 sm:px-10 py-3 sm:py-3.5 text-[12px] sm:text-[13.5px] font-semibold tracking-[0.12em] uppercase text-black transition-all duration-200 hover:bg-[#0F3F37] hover:border-[#0F3F37] hover:text-[#DCC48E] active:scale-95"
                   style={{
                     borderColor: GOLD,
-                    color: GOLD,
+                  }}
+                  hoverStyle={{
+                    backgroundColor: BG,
+                    borderColor: BG,
+                    color: 'white',
                   }}
                 >
                   <svg

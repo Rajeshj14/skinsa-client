@@ -169,7 +169,7 @@ export default function WhyUs() {
       `}</style>
       <section
         ref={sectionRef}
-        id="why-choose-us"
+        id="treatments"
         style={{ backgroundColor: BG }}
         className="w-full scroll-mt-28 py-10 sm:py-16 lg:py-20 px-6 overflow-hidden"
       >

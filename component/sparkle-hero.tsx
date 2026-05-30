@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 const navLinks = [
   { label: "Home", href: "/#home" },
-  { label: "Treatments", href: "/#why-choose-us" },
+  { label: "Treatments", href: "/#treatments" },
   { label: "About Us", href: "/#about" },
   { label: "Why Us", href: "/#why-us" },
   { label: "FAQ", href: "/#faq" },
@@ -68,7 +68,8 @@ export default function JewelryHero() {
         .hero-loaded .jw-left       { animation: heroFromLeft   0.85s cubic-bezier(0.22,1,0.36,1) 1.95s forwards; }
         .hero-loaded .jw-center     { animation: heroFromBottom 0.85s cubic-bezier(0.22,1,0.36,1) 1.95s forwards; }
         .hero-loaded .jw-right      { animation: heroFromRight  0.85s cubic-bezier(0.22,1,0.36,1) 2.65s forwards; }
-        .hero-loaded .jw-marquee    { animation: heroFade       0.75s ease             3.3s  forwards; }
+        .hero-loaded .jw-marquee,
+        .jw-marquee.hero-marquee-loaded { animation: heroFade 0.75s ease 3.3s forwards; }
 
         @media (prefers-reduced-motion: reduce) {
           .jw-nav, .jw-badge, .jw-title, .jw-left, .jw-center,
@@ -227,7 +228,7 @@ export default function JewelryHero() {
           grid-template-columns: minmax(0,1fr) 330px minmax(0,1fr);
           column-gap: 62px;
           align-items: start;
-          padding: 0 52px;
+          padding: 6px 52px;
           max-width: 1440px;
           margin: 0 auto;
         }
@@ -238,7 +239,20 @@ export default function JewelryHero() {
           padding-top: 10px;
           align-items: flex-end;
         }
-        .stat-block { margin-bottom: 38px; }
+        .stat-block {
+          width: min(100%, 310px);
+          margin-bottom: 22px;
+          padding: 20px 22px;
+          border: 1px solid rgba(201,169,110,0.44);
+          border-radius: 18px;
+          background:
+            linear-gradient(135deg, rgba(15,63,55,0.88) 0%, rgba(15,63,55,0.62) 100%),
+            rgba(255,255,255,0.06);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 16px 34px rgba(0,0,0,0.18);
+          backdrop-filter: blur(10px);
+        }
         .stat-block:last-child { margin-bottom: 0; }
         .stat-row {
           display: flex;
@@ -263,7 +277,7 @@ export default function JewelryHero() {
           font-size: 13.5px;
           color: rgba(255,255,255,0.78);
           line-height: 1.75;
-          max-width: 260px;
+          max-width: 100%;
           padding-left: 24px;
         }
 
@@ -271,14 +285,19 @@ export default function JewelryHero() {
         .big-img {
           width: 330px;
           height: 430px;
-          border-radius: 0 160px 0 0;
+          border-radius: 96px;
           overflow: hidden;
           flex-shrink: 0;
           position: relative;
+          box-sizing: border-box;
+          border: 2px solid #DCC48E;
+          background: transparent;
         }
         .big-img-inner {
           width: 100%;
           height: 100%;
+          overflow: hidden;
+          border-radius: inherit;
           background: linear-gradient(168deg, #0F3F37 0%, #1f6b5d 46%, #C9A96E 100%);
         }
         .big-img-inner img {
@@ -309,14 +328,19 @@ export default function JewelryHero() {
         .small-img {
           width: 162px;
           height: 222px;
-          border-radius: 81px 0 0 0;
+          border-radius: 56px;
           overflow: hidden;
           margin-top: 20px;
           flex-shrink: 0;
           position: relative;
+          box-sizing: border-box;
+          border: 2px solid #DCC48E;
+          background: transparent;
         }
         .small-img-inner {
           width: 100%; height: 100%;
+          overflow: hidden;
+          border-radius: inherit;
           background: linear-gradient(158deg, #0F3F37 0%, #1f6b5d 52%, #C9A96E 100%);
         }
         .small-img-inner img {
@@ -328,18 +352,17 @@ export default function JewelryHero() {
         /* ── MARQUEE ── */
         .jw-marquee {
           margin-bottom:18px;
-          margin-top:22px;
+          margin-top: 0px;
           display: flex;
           align-items: center;
           overflow: hidden;
-          background: #0F3F37;
-          color: #C9A96E;
-          border-top: 1px solid rgba(201,169,110,0.55);
-          border-bottom: 1px solid rgba(201,169,110,0.55);
-          box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(255,255,255,0.08);
+          background: linear-gradient(180deg, #DCC48E 0%, #C9A96E 100%);
+          color: #0F3F37;
+          border-top: 1px solid rgba(15,63,55,0.35);
+          border-bottom: 0;
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
           clip-path: polygon(
-            0 8%, 10% 0, 20% 8%, 30% 0, 40% 8%, 50% 0,
-            60% 8%, 70% 0, 80% 8%, 90% 0, 100% 8%,
+            0 0, 100% 0,
             100% 92%, 90% 100%, 80% 92%, 70% 100%, 60% 92%,
             50% 100%, 40% 92%, 30% 100%, 20% 92%, 10% 100%, 0 92%
           );
@@ -361,6 +384,7 @@ export default function JewelryHero() {
           letter-spacing: 0.04em;
           white-space: nowrap;
           text-transform: uppercase;
+          text-shadow: 0 1px 0 rgba(0,0,0,0.22);
         }
         .jw-marquee span::after {
           content: '\\2726';
@@ -368,7 +392,7 @@ export default function JewelryHero() {
           height: auto;
           border: 0;
           background: transparent;
-          color: #C9A96E;
+          color: #0F3F37;
           font-size: 0.82em;
           line-height: 1;
           transform: none;
@@ -390,11 +414,11 @@ export default function JewelryHero() {
           .jw-left { align-items: flex-start; padding-top: 0; }
           .stat-block { margin-bottom: 28px; }
           .stat-desc { max-width: 100%; }
-          .big-img { width: 280px; height: 365px; border-radius: 0 128px 0 0; }
+          .big-img { width: 280px; height: 365px; border-radius: 82px; }
           .jw-right { grid-column: 1 / -1; height: auto; padding-top: 0; }
           .jw-quote { max-width: 620px; }
-          .small-img { width: 138px; height: 190px; border-radius: 70px 0 0 0; }
-          .jw-marquee { margin-top: 18px; margin-bottom: 12px; }
+          .small-img { width: 138px; height: 190px; border-radius: 48px; }
+          .jw-marquee { margin-top: 0; margin-bottom: 12px; }
           .jw-marquee span { padding: 9px 22px 10px; font-size: clamp(20px, 3.8vw, 32px); }
         }
 
@@ -422,15 +446,14 @@ export default function JewelryHero() {
           .stat-block {
             width: 100%;
             margin-bottom: 0;
-            border: 1px solid rgba(201,169,110,0.36);
-            background: rgba(15,63,55,0.32);
             padding: 16px;
+            border-radius: 16px;
           }
           .stat-row { margin-bottom: 10px; }
           .stat-label { font-size: 22px; }
           .stat-desc { padding-left: 0; font-size: 13px; line-height: 1.65; }
 
-          .big-img { width: min(100%, 290px); height: 360px; border-radius: 0 120px 0 0; }
+          .big-img { width: min(100%, 290px); height: 360px; border-radius: 82px; }
 
           .sparkle-svg { margin-bottom: 10px; }
           .jw-quote { font-size: 13.5px; line-height: 1.7; max-width: 100%; text-align: center; }
@@ -439,7 +462,7 @@ export default function JewelryHero() {
           .small-img {
             width: min(100%, 260px) !important;
             height: 280px !important;
-            border-radius: 130px 0 0 0 !important;
+            border-radius: 76px !important;
             margin: 20px auto 0 !important;
           }
 
@@ -533,11 +556,11 @@ export default function JewelryHero() {
               <h3 className="stat-label" style={{ fontSize: "20px", marginBottom: "10px", paddingLeft: "24px" }}>
                 Overall Fat Loss
               </h3>
-              <p className="stat-desc">
+              {/* <p className="stat-desc">
                 Get up to 45% Off<br />
                 Valid till the end of this month only<br />
                 100% Consultation Fee Refund upon booking a package
-              </p>
+              </p> */}
             </div>
             <div className="stat-block">
               <div className="stat-row">
@@ -547,11 +570,11 @@ export default function JewelryHero() {
               <h3 className="stat-label" style={{ fontSize: "20px", marginBottom: "10px", paddingLeft: "24px" }}>
                 Fat Reduction for Specific Areas
               </h3>
-              <p className="stat-desc">
+              {/* <p className="stat-desc">
                 Get up to 35% Off<br />
                 Valid till the end of this month only<br />
                 100% Consultation Fee Refund upon booking a package
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -592,8 +615,12 @@ export default function JewelryHero() {
 
         </div>
 
-        {/* ── MARQUEE ── */}
-        <div className="jw-marquee" aria-hidden="true">
+       
+
+
+      </div>
+       {/* ── MARQUEE ── */}
+              <div className={`jw-marquee${loaded ? ' hero-marquee-loaded' : ''}`} aria-hidden="true">
           <div className="jw-marquee-track" style={{ fontFamily: "'DM Serif Display', serif" }}>
             {[
               ...["Advanced Aesthetic Technology", "Expert-Guided Programs", "Customised Body Sculpting Solutions",],
@@ -603,8 +630,6 @@ export default function JewelryHero() {
             ))}
           </div>
         </div>
-
-      </div>
     </>
   );
 }
